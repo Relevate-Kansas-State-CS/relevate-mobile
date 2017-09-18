@@ -1,5 +1,8 @@
 {
-    "name": "relevate-mobile-front-end",
-    "dependencies": {
-    }
+  "name": "relevate-mobile-front-end",
+  "dependencies": {
+    "angular-material": "v1.1.5",
+    "ngstorage": "0.3.11",
+    "angular-socket-io": "v0.7.0"
+  }
 }
