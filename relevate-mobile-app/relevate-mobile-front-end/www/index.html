@@ -1,29 +1,47 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>relevatemobilefrontend</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/style_elements.css" />
+    <title>Relevate Mobile App</title>
+</head>
+<body ng-cloak ng-controller="NavigationController" ng-app="mainApp">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <div flex layout="row" layout-align="space-around center">
+            <md-nav-item md-nav-href="index.html#!/home" name="home">
+                Home
+            </md-nav-item>
+            <md-nav-item md-nav-href="index.html#!/trending" name="trending">
+                Trending
+            </md-nav-item>
+            <md-nav-item md-nav-href="index.html#!/recent" name="recent">
+                Recent
+            </md-nav-item>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
-    </body>
+    </md-nav-bar>
+    <md-content ng-view></md-content>
+</body>
 </html>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-socket-io/socket.min.js"></script>
+<script type="text/javascript" src="scripts/app.module.js"></script>
+<script type="text/javascript" src="scripts/app.config.js"></script>
+<script type="text/javascript" src="scripts/app.controllers.js"></script>
+<script type="text/javascript" src="home-view/homeView.module.js"></script>
+<script type="text/javascript" src="home-view/homeView.component.js"></script>
+<script type="text/javascript" src="trending-view/trendingView.module.js"></script>
+<script type="text/javascript" src="recent-view/recentView.module.js"></script>
