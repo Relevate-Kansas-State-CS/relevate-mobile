@@ -7,6 +7,7 @@
     'btford.socket-io',
     'ngStorage',
     'ngMdIcons',
+    'ngCordova',
     'homeView',
     'trendingView',
     'recentView'

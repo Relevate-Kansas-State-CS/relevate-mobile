@@ -10,8 +10,20 @@
     <link rel="stylesheet" type="text/css" href="css/style_elements.css" />
     <title>Relevate Mobile App</title>
 </head>
-<body ng-cloak ng-controller="NavigationController" ng-app="mainApp" md-swipe-right="onSwipeRight()">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+<body ng-cloak ng-controller="NavigationController" ng-app="mainApp" layout="column">
+    <md-toolbar class="dark-blue" md-swipe-right="onSwipeRight()">
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Side Nav" class="md-icon-button" layout-align="start center">
+                <ng-md-icon icon="menu" class="gray"></ng-md-icon>
+            </md-button>
+            <img layout-padding ng-src="images/RelevateLogoL.png" layout-align="center center" />
+            <h2 flex md-truncate class="white" layout-align="center center">Relevate</h2>
+            <md-button class="md-icon-button" aria-label="Settings" layout-align="end center">
+                <ng-md-icon icon="settings" class="gray"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" md-swipe-right="onSwipeRight()">
         <div flex layout="row" layout-align="space-around center">
             <md-nav-item md-nav-href="index.html#!/home" name="home">
                 Home
@@ -24,7 +36,7 @@
             </md-nav-item>
         </div>
     </md-nav-bar>
-    <md-content ng-view></md-content>
+    <md-content ng-view md-swipe-right="onSwipeRight()"></md-content>
 </body>
 </html>
 <script type="text/javascript" src="cordova.js"></script>
@@ -37,10 +49,11 @@
 <script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
 <script type="text/javascript" src="lib/ngstorage/ngStorage.min.js"></script>
 <script type="text/javascript" src="lib/angular-material-icons/angular-material-icons.min.js"></script>
+<script type="text/javascript" src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 <script type="text/javascript" src="lib/angular-socket-io/socket.min.js"></script>
 <script type="text/javascript" src="scripts/app.module.js"></script>
-<script type="text/javascript" src="scripts/app.config.js"></script>
 <script type="text/javascript" src="scripts/app.controllers.js"></script>
+<script type="text/javascript" src="scripts/app.config.js"></script>
 <script type="text/javascript" src="home-view/homeView.module.js"></script>
 <script type="text/javascript" src="home-view/homeView.component.js"></script>
 <script type="text/javascript" src="trending-view/trendingView.module.js"></script>
