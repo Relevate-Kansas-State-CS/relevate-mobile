@@ -47,8 +47,11 @@
     color: #ffffff;
     background: #333;
 }
+.favorite {
+    fill: #8a84e2;
+}
 .share {
-    fill: #14c222;
+    fill: #8a84e2;
 }
 .white {
     color: #ffffff;
