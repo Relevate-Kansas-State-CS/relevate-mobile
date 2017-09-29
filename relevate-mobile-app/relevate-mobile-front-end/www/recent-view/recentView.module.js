@@ -1,1 +1,1 @@
-﻿angular.module('recentView', []);
+﻿angular.module('recentView', ['ngCordova']);
