@@ -6,11 +6,11 @@
     color: #79beee
 }
 .orange {
-    color: #ed7d31;
+    color: #ee7600;
 }
 .bg-orange {
     color: #ffffff;
-    background: #ed7d31;
+    background: #ee7600;
 }
 .dark-blue {
     color: #1e87f0;
@@ -46,12 +46,6 @@
 .bg-black {
     color: #ffffff;
     background: #333;
-}
-.favorite {
-    fill: #8a84e2;
-}
-.share {
-    fill: #8a84e2;
 }
 .white {
     color: #ffffff;

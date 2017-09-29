@@ -1,5 +1,10 @@
 {
     "name": "relevate-mobile-front-end",
     "version": "1.0.0",
-    "private": true
+    "private": true,
+    "dependencies": {
+        "jasmine": "^2.8.0",
+        "karma": "^1.7.1",
+        "protractor": "^5.1.2"
+    }
 }
