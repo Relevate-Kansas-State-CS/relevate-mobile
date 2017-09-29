@@ -1,1 +1,1 @@
-﻿angular.module('trendingView', []);
+﻿angular.module('trendingView', ['ngCordova']);
