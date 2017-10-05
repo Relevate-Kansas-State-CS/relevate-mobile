@@ -6,6 +6,7 @@
     "angular-socket-io": "v0.7.0",
     "angular-route": "v1.6.6",
     "angular-material-icons": "v0.7.1",
-    "ngCordova": "0.1.27-alpha"
+    "ngCordova": "0.1.27-alpha",
+    "angular-mocks": "^1.6.6"
   }
 }
