@@ -11,10 +11,29 @@ module.exports = function(config) {
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
-
-
+    
     // list of files / patterns to load in the browser
     files: [
+        'www/lib/angular/angular.js',
+        'www/lib/angular-animate/angular-animate.js',
+        'www/lib/angular-aria/angular-aria.js',
+        'www/lib/angular-messages/angular-messages.js',
+        'www/lib/angular-route/angular-route.js',
+        'www/lib/angular-material/angular-material.js',
+        'www/lib/ngstorage/ngStorage.js',
+        'www/lib/angular-material-icons/angular-material-icons.js',
+        'www/lib/ngCordova/dist/ng-cordova.js',
+        'www/lib/angular-socket-io/socket.js',
+        'www/lib/angular-mocks/angular-mocks.js',
+        'www/scripts/app.module.js',
+        'www/scripts/app.controllers.js',
+        'www/scripts/app.config.js',
+        'www/home-view/homeView.module.js',
+        'www/home-view/homeView.component.js',
+        'www/trending-view/trendingView.module.js',
+        'www/trending-view/trendingView.component.js',
+        'www/recent-view/recentView.module.js',
+        'www/recent-view/recentView.component.js',
         'tests/*js'
     ],
 
@@ -60,7 +79,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

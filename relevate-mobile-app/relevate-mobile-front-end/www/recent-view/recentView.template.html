@@ -1,4 +1,4 @@
-﻿<md-card ng-repeat="article in $ctrl.articles track by $index" class="bg-liblue">
+﻿<md-card ng-repeat="article in articles track by $index" class="bg-liblue">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{article.title}}</span>
@@ -10,7 +10,7 @@
             <p>{{article.desc}}</p>
         </div>
         <div flex layout="row">
-            <a ng-click="$ctrl.OpenArticle(article.url)" class="black">Read More...</a>
+            <a ng-click="OpenArticle(article.url)" class="black">Read More...</a>
         </div>
         <md-divider></md-divider>
         <div flex layout="row">

@@ -1,6 +1,32 @@
-﻿describe('Users factory', function () {
-    it('has a dummy spec to test 2 + 2', function () {
-        // An intentionally failing test. No code within expect() will never equal 4.
-        expect(2+2).toEqual(4);
+﻿describe('UsersController', function () {
+    var UsersController;
+
+    beforeEach(angular.mock.module('ngMaterial'));
+    beforeEach(angular.mock.module('ngAria'));
+    beforeEach(angular.mock.module('ngAnimate'));
+    beforeEach(angular.mock.module('ngMessages'));
+    beforeEach(angular.mock.module('ngRoute'));
+    beforeEach(angular.mock.module('btford.socket-io'));
+    beforeEach(angular.mock.module('ngStorage'));
+    beforeEach(angular.mock.module('ngMdIcons'));
+    beforeEach(angular.mock.module('ngCordova'));
+    beforeEach(angular.mock.module('homeView'));
+    beforeEach(angular.mock.module('trendingView'));
+    beforeEach(angular.mock.module('recentView'));
+    beforeEach(angular.mock.module('mainApp'));
+
+    // Inject the $controller service to create instances of the controller (UsersController) we want to test
+    beforeEach(inject(function ($controller, $rootScope, $http, $cordovaInAppBrowser) {
+        var scope = $rootScope.$new();
+        UsersController = $controller('HomeTabController', {
+            $scope: scope,
+            $http: $http,
+            $cordovaInAppBrowser: $cordovaInAppBrowser
+        });
+    }));
+
+    // Verify our controller exists
+    it('should be defined', function () {
+        expect(UsersController).toBeDefined();
     });
 });
