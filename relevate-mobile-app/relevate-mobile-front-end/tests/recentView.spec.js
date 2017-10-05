@@ -1,5 +1,5 @@
-﻿describe('HomeTabController', function () {
-    var HomeController;
+﻿describe('RecentTabController', function () {
+    var RecentController;
     var scope;
     var http;
     var cordovaInAppBrowser;
@@ -25,7 +25,7 @@
         http = $http;
         cordovaInAppBrowser = $cordovaInAppBrowser;
         httpBackend = $httpBackend;
-        HomeController = $controller('HomeTabController', {
+        RecentController = $controller('RecentTabController', {
             $scope: scope,
             $http: http,
             $cordovaInAppBrowser: cordovaInAppBrowser
@@ -34,6 +34,6 @@
 
     // Verify our controller exists
     it('Controller defined', function () {
-        expect(HomeController).toBeDefined();
+        expect(RecentController).toBeDefined();
     });
 });
