@@ -12,6 +12,9 @@
         when('/recent', {
           template: '<recent-view></recent-view>'
         }).
+        when('/quizzes', {
+           template: '<quizzes-view></quizzes-view>'
+        }).
         otherwise('/home');
     }
   ]);

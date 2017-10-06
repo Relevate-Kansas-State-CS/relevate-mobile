@@ -10,5 +10,6 @@
     'ngCordova',
     'homeView',
     'trendingView',
-    'recentView'
+    'recentView',
+    'quizzesView'
 ]);

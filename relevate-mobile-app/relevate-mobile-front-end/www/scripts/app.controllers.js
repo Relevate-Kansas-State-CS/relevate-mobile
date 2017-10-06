@@ -1,4 +1,8 @@
-﻿angular.module('mainApp').
+﻿/*
+    This file connects sections of the application to their corresponding controllers and .json data.
+*/
+
+angular.module('mainApp').
     controller('NavigationController', ['$scope', function ($scope) {
         $scope.currentNavItem = 'home';
         $scope.onSwipeRight = function (ev) {
@@ -41,6 +45,19 @@
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/recent_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
+    }]).
+    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/quizzes_art.json').then(function (response) {
             $scope.articles = response.data;
         });
     }]);
