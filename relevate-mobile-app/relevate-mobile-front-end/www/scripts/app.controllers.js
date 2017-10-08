@@ -2,12 +2,12 @@
     This file connects sections of the application to their corresponding controllers and .json data.
 */
 
-angular.module('mainApp').
-    controller('NavigationController', ['$scope', function ($scope) {
+angular.module('mainApp', ['ngMaterial']).
+    controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.currentNavItem = 'home';
-        $scope.onSwipeRight = function (ev) {
-            alert('You swiped right!!');
-        };
+        $scope.openSideNav = function (componentId) {
+            $mdSidenav(componentId).toggle();
+        }
     }]).
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {

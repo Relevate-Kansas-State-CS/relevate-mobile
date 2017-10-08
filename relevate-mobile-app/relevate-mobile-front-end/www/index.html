@@ -19,7 +19,7 @@
 <body ng-cloak ng-controller="NavigationController" ng-app="mainApp" layout="column">
     <md-toolbar class="dark-blue" md-swipe-right="onSwipeRight()">
         <div class="md-toolbar-tools" layout-align="space-between center">
-            <md-button aria-label="Side Navagation" class="md-icon-button">
+            <md-button ng-click="toggleLeft()" aria-label="Side Navagation" class="md-icon-button">
                 <ng-md-icon icon="menu" class="white"></ng-md-icon>
             </md-button>
             <img layout-padding ng-src="images/RelevateLogoL.png" />
@@ -44,7 +44,27 @@
             </md-nav-item>
         </div>
     </md-nav-bar>
-    <md-content ng-view md-swipe-right="onSwipeRight()"></md-content>
+    <!--
+    Left side navigation bar. Can be brought in from swipe right or hamburger menu icon. Can be dismissed by swipe left 
+        or tapping outside the menu.
+    -->
+    <md-sidenav class="md-sidenav-left" md-component-id="left"
+                md-disable-backdrop md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+        </md-toolbar>
+
+        <md-content layout-margin>
+            <p>
+                This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
+            </p>
+            <md-button ng-click="openSideNav()" class="md-accent">
+                Close this Sidenav
+            </md-button>
+        </md-content>
+
+    </md-sidenav>
 </body>
 </html>
 <script type="text/javascript" src="cordova.js"></script>
