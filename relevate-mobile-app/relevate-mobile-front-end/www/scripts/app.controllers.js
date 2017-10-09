@@ -2,12 +2,16 @@
     This file connects sections of the application to their corresponding controllers and .json data.
 */
 
-angular.module('mainApp', ['ngMaterial']).
+angular.module('mainApp').
     controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').toggle();
+        };
+    }]).
+    controller('SideNavController', ['$scope', function ($scope) {
+    }]).
+    controller('FeedController', ['$scope', function ($scope) {
         $scope.currentNavItem = 'home';
-        $scope.openSideNav = function (componentId) {
-            $mdSidenav(componentId).toggle();
-        }
     }]).
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {
@@ -58,19 +62,6 @@ angular.module('mainApp', ['ngMaterial']).
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/quizzes_art.json').then(function (response) {
-            $scope.articles = response.data;
-        });
-    }]).
-    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
-        };
-        $http.get('data/journals_art.json').then(function (response) {
             $scope.articles = response.data;
         });
     }]);

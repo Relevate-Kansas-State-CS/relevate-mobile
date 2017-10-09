@@ -16,10 +16,10 @@
     <link rel="stylesheet" type="text/css" href="css/style_elements.css" />
     <title>Relevate Mobile App</title>
 </head>
-<body ng-cloak ng-controller="NavigationController" ng-app="mainApp" layout="column">
-    <md-toolbar class="dark-blue" md-swipe-right="onSwipeRight()">
+<body ng-cloak ng-controller="NavigationController" ng-app="mainApp">
+    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
         <div class="md-toolbar-tools" layout-align="space-between center">
-            <md-button ng-click="toggleLeft()" aria-label="Side Navagation" class="md-icon-button">
+            <md-button aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
                 <ng-md-icon icon="menu" class="white"></ng-md-icon>
             </md-button>
             <img layout-padding ng-src="images/RelevateLogoL.png" />
@@ -31,39 +31,35 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" md-swipe-right="onSwipeRight()">
-        <div flex layout="row" layout-align="space-around center">
-            <md-nav-item md-nav-href="index.html#!/home" name="home">
-                Home
-            </md-nav-item>
-            <md-nav-item md-nav-href="index.html#!/trending" name="trending">
-                Trending
-            </md-nav-item>
-            <md-nav-item md-nav-href="index.html#!/recent" name="recent">
-                Recent
-            </md-nav-item>
-        </div>
-    </md-nav-bar>
-    <!--
-    Left side navigation bar. Can be brought in from swipe right or hamburger menu icon. Can be dismissed by swipe left 
-        or tapping outside the menu.
-    -->
-    <md-sidenav class="md-sidenav-left" md-component-id="left"
-                md-disable-backdrop md-whiteframe="4">
-
-        <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+    <md-content ui-view md-swipe-right="openSideNav()" layout="column"></md-content>
+    <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+        <md-toolbar class="bg-gray">
+            <h1 class="md-toolbar-tools">Menu</h1>
         </md-toolbar>
-
-        <md-content layout-margin>
-            <p>
-                This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.
-            </p>
-            <md-button ng-click="openSideNav()" class="md-accent">
-                Close this Sidenav
-            </md-button>
+        <md-content ng-controller="SideNavController" layout-padding>
+            <md-list>
+                <md-list-item ui-sref="feed.home">
+                    <ng-md-icon icon="home" class="purple"></ng-md-icon>
+                    <p>Home</p>
+                </md-list-item>
+                <md-list-item ui-sref="feed.home">
+                    <ng-md-icon icon="grade" class="purple"></ng-md-icon>
+                    <p>Favorites</p>
+                </md-list-item>
+                <md-list-item ui-sref="feed.home">
+                    <ng-md-icon icon="supervisor_account" class="purple"></ng-md-icon>
+                    <p>Following</p>
+                </md-list-item>
+                <md-list-item ui-sref="activities">
+                    <ng-md-icon icon="launch" class="purple"></ng-md-icon>
+                    <p>Activities</p>
+                </md-list-item>
+                <md-list-item ui-sref="feed.home">
+                    <ng-md-icon icon="settings" class="purple"></ng-md-icon>
+                    <p>Settings</p>
+                </md-list-item>
+            </md-list>
         </md-content>
-
     </md-sidenav>
 </body>
 </html>
@@ -73,12 +69,12 @@
 <script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
 <script type="text/javascript" src="lib/angular-aria/angular-aria.min.js"></script>
 <script type="text/javascript" src="lib/angular-messages/angular-messages.min.js"></script>
-<script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
 <script type="text/javascript" src="lib/ngstorage/ngStorage.min.js"></script>
 <script type="text/javascript" src="lib/angular-material-icons/angular-material-icons.min.js"></script>
 <script type="text/javascript" src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 <script type="text/javascript" src="lib/angular-socket-io/socket.min.js"></script>
+<script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="scripts/app.module.js"></script>
 <script type="text/javascript" src="scripts/app.controllers.js"></script>
 <script type="text/javascript" src="scripts/app.config.js"></script>
@@ -90,5 +86,5 @@
 <script type="text/javascript" src="recent-view/recentView.component.js"></script>
 <script type="text/javascript" src="quizzes-view/quizzesView.module.js"></script>
 <script type="text/javascript" src="quizzes-view/quizzesView.component.js"></script>
-<script type="text/javascript" src="journals-view/journalsView.module.js"></script>
-<script type="text/javascript" src="journals-view/journalsView.component.js"></script>
+<script type="text/javascript" src="feed-view/feedView.module.js"></script>
+<script type="text/javascript" src="feed-view/feedView.component.js"></script>

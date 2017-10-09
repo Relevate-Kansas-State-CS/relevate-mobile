@@ -3,7 +3,7 @@
     'ngAria',
     'ngAnimate',
     'ngMessages',
-    'ngRoute',
+    'ui.router',
     'btford.socket-io',
     'ngStorage',
     'ngMdIcons',
@@ -12,5 +12,5 @@
     'trendingView',
     'recentView',
     'quizzesView',
-    'journalsView'
+    'feedView'
 ]);
