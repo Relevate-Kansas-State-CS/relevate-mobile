@@ -31,7 +31,7 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-content ng-view md-swipe-right="onSwipeRight()" layout="column"></md-content>
+    <md-content ui-view md-swipe-right="onSwipeRight()" layout="column"></md-content>
 </body>
 </html>
 <script type="text/javascript" src="cordova.js"></script>
@@ -46,6 +46,7 @@
 <script type="text/javascript" src="lib/angular-material-icons/angular-material-icons.min.js"></script>
 <script type="text/javascript" src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 <script type="text/javascript" src="lib/angular-socket-io/socket.min.js"></script>
+<script type="text/javascript" src="lib//angular-ui-router/release/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="scripts/app.module.js"></script>
 <script type="text/javascript" src="scripts/app.controllers.js"></script>
 <script type="text/javascript" src="scripts/app.config.js"></script>
@@ -55,3 +56,5 @@
 <script type="text/javascript" src="trending-view/trendingView.component.js"></script>
 <script type="text/javascript" src="recent-view/recentView.module.js"></script>
 <script type="text/javascript" src="recent-view/recentView.component.js"></script>
+<script type="text/javascript" src="feed-view/feedView.module.js"></script>
+<script type="text/javascript" src="feed-view/feedView.component.js"></script>

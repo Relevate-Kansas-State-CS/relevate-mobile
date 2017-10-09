@@ -1,1 +1,1 @@
-﻿angular.module('feedView', ['ngComponentRouter', 'homeView', 'trendingView', 'recentView']);
+﻿angular.module('feedView', []);
