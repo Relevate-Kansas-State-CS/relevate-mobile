@@ -1,11 +1,9 @@
 ﻿angular.module('mainApp').
     controller('NavigationController', ['$scope', function ($scope) {
+        $scope.currentNavItem = 'home';
         $scope.onSwipeRight = function (ev) {
             alert('You swiped right!!');
         };
-    }]).
-    controller('FeedController', ['$scope', function ($scope) {
-        $scope.currentNavItem = 'home';
     }]).
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {
