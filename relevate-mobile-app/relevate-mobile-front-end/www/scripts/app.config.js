@@ -3,9 +3,15 @@
   config(['$routeProvider',
     function config($routeProvider) {
       $routeProvider.
-        when('/feed', {
-          template: '<feed-view></feed-view>'
+        when('/home', {
+          template: '<home-view></home-view>'
         }).
-        otherwise('/feed');
+        when('/trending', {
+          template: '<trending-view></trending-view>'
+        }).
+        when('/recent', {
+          template: '<recent-view></recent-view>'
+        }).
+        otherwise('/home');
     }
   ]);
