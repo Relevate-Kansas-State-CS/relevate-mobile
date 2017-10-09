@@ -15,6 +15,9 @@
         when('/quizzes', {
            template: '<quizzes-view></quizzes-view>'
         }).
+        when('/journals', {
+           template: '<journals-view></journals-view>'
+        }).
         otherwise('/home');
     }
   ]);

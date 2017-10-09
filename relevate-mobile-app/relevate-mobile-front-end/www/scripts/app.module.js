@@ -11,5 +11,6 @@
     'homeView',
     'trendingView',
     'recentView',
-    'quizzesView'
+    'quizzesView',
+    'journalsView'
 ]);

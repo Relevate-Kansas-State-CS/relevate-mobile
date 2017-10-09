@@ -60,4 +60,17 @@ angular.module('mainApp', ['ngMaterial']).
         $http.get('data/quizzes_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+    }]).
+    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/journals_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
     }]);
