@@ -19,9 +19,13 @@
                   url: '/recent',
                   template: '<recent-view></recent-view>'
               }).
-              state('activities', {
-                  url: '/activities',
-                  template: '<quizzes-view></quizzes-view>'
+              state('quizzes', {
+                  url: '/quizzes',
+                  template: '<quizzes-view></quizzes-view><div ui-view></div>'
+              }).
+              state('journals', {
+                  url: '/journals',
+                  template: '<journals-view></journals-view><div ui-view></div>'
               });
           $urlRouterProvider.otherwise('/feed/home');
       }

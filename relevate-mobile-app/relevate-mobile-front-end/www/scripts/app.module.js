@@ -12,5 +12,6 @@
     'trendingView',
     'recentView',
     'quizzesView',
+    'journalsView',
     'feedView'
 ]);

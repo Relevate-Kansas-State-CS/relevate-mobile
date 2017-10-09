@@ -17,20 +17,6 @@
     <title>Relevate Mobile App</title>
 </head>
 <body ng-cloak ng-controller="NavigationController" ng-app="mainApp">
-    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
-        <div class="md-toolbar-tools" layout-align="space-between center">
-            <md-button aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
-                <ng-md-icon icon="menu" class="white"></ng-md-icon>
-            </md-button>
-            <img layout-padding ng-src="images/RelevateLogoL.png" />
-            <md-input-container class="md-block" md-no-float aria-label="Input Field">
-                <input class="white" placeholder="Search" type="text">
-            </md-input-container>
-            <md-button class="md-icon-button" aria-label="Search">
-                <ng-md-icon icon="search" class="white"></ng-md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
     <md-content ui-view md-swipe-right="openSideNav()" layout="column"></md-content>
     <div ng-controller="SideNavController" md-swipe-left="closeSideNav()">
         <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
@@ -51,9 +37,13 @@
                         <ng-md-icon icon="supervisor_account" class="light-blue"></ng-md-icon>
                         <p>Following</p>
                     </md-list-item>
-                    <md-list-item ui-sref="activities" ng-click="closeSideNav()">
+                    <md-list-item ui-sref="quizzes" ng-click="closeSideNav()">
                         <ng-md-icon icon="launch" class="dark-blue"></ng-md-icon>
-                        <p>Activities</p>
+                        <p>Quizzes</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="journals" ng-click="closeSideNav()">
+                        <ng-md-icon icon="book" class="orange"></ng-md-icon>
+                        <p>Journals</p>
                     </md-list-item>
                     <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
                         <ng-md-icon icon="settings" class="gray"></ng-md-icon>
@@ -90,3 +80,5 @@
 <script type="text/javascript" src="quizzes-view/quizzesView.component.js"></script>
 <script type="text/javascript" src="feed-view/feedView.module.js"></script>
 <script type="text/javascript" src="feed-view/feedView.component.js"></script>
+<script type="text/javascript" src="journals-view/journalsView.module.js"></script>
+<script type="text/javascript" src="journals-view/journalsView.component.js"></script>

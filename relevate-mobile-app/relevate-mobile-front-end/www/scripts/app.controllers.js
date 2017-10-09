@@ -13,7 +13,10 @@ angular.module('mainApp').
             $mdSidenav('left').close();
         };
     }]).
-    controller('FeedController', ['$scope', function ($scope) {
+    controller('FeedController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
         $scope.currentNavItem = 'home';
     }]).
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
@@ -55,7 +58,10 @@ angular.module('mainApp').
             $scope.articles = response.data;
         });
     }]).
-    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
         var options = {
             location: 'yes',
             clearcache: 'yes',
@@ -68,7 +74,10 @@ angular.module('mainApp').
             $scope.articles = response.data;
         });
     }]).
-    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
         var options = {
             location: 'yes',
             clearcache: 'yes',
