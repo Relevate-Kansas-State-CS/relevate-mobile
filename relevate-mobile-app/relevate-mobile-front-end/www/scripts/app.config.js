@@ -5,7 +5,7 @@
           $stateProvider.
               state('feed', {
                   url: '/feed',
-                  template: '<feed-view></feed-view><div ui-view></div'
+                  template: '<feed-view></feed-view><div ui-view></div>'
               }).
               state('feed.home', {
                   url: '/home',

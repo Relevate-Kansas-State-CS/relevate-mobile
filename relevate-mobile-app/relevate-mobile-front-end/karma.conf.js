@@ -18,7 +18,7 @@ module.exports = function(config) {
         'www/lib/angular-animate/angular-animate.js',
         'www/lib/angular-aria/angular-aria.js',
         'www/lib/angular-messages/angular-messages.js',
-        'www/lib/angular-route/angular-route.js',
+        'www/lib/angular-ui-router/release/angular-ui-router.js',
         'www/lib/angular-material/angular-material.js',
         'www/lib/ngstorage/ngStorage.js',
         'www/lib/angular-material-icons/angular-material-icons.js',
@@ -34,6 +34,10 @@ module.exports = function(config) {
         'www/trending-view/trendingView.component.js',
         'www/recent-view/recentView.module.js',
         'www/recent-view/recentView.component.js',
+        'www/feed-view/feedView.module.js',
+        'www/feed-view/feedView.component.js',
+        'www/quizzes-view/quizzesView.module.js',
+        'www/quizzes-view/quizzesView.component.js',
         'tests/*js'
     ],
 

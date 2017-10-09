@@ -32,35 +32,37 @@
         </div>
     </md-toolbar>
     <md-content ui-view md-swipe-right="openSideNav()" layout="column"></md-content>
-    <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
-        <md-toolbar class="bg-gray">
-            <h1 class="md-toolbar-tools">Menu</h1>
-        </md-toolbar>
-        <md-content ng-controller="SideNavController" layout-padding>
-            <md-list>
-                <md-list-item ui-sref="feed.home">
-                    <ng-md-icon icon="home" class="purple"></ng-md-icon>
-                    <p>Home</p>
-                </md-list-item>
-                <md-list-item ui-sref="feed.home">
-                    <ng-md-icon icon="grade" class="purple"></ng-md-icon>
-                    <p>Favorites</p>
-                </md-list-item>
-                <md-list-item ui-sref="feed.home">
-                    <ng-md-icon icon="supervisor_account" class="purple"></ng-md-icon>
-                    <p>Following</p>
-                </md-list-item>
-                <md-list-item ui-sref="activities">
-                    <ng-md-icon icon="launch" class="purple"></ng-md-icon>
-                    <p>Activities</p>
-                </md-list-item>
-                <md-list-item ui-sref="feed.home">
-                    <ng-md-icon icon="settings" class="purple"></ng-md-icon>
-                    <p>Settings</p>
-                </md-list-item>
-            </md-list>
-        </md-content>
-    </md-sidenav>
+    <div ng-controller="SideNavController" md-swipe-left="closeSideNav()">
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+            <md-toolbar class="bg-gray">
+                <h1 class="md-toolbar-tools" id="sideNavTitle">Menu</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <md-list>
+                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                        <ng-md-icon icon="home" class="purple"></ng-md-icon>
+                        <p>Home</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                        <ng-md-icon icon="grade" class="orange"></ng-md-icon>
+                        <p>Favorites</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                        <ng-md-icon icon="supervisor_account" class="light-blue"></ng-md-icon>
+                        <p>Following</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="activities" ng-click="closeSideNav()">
+                        <ng-md-icon icon="launch" class="dark-blue"></ng-md-icon>
+                        <p>Activities</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                        <ng-md-icon icon="settings" class="gray"></ng-md-icon>
+                        <p>Settings</p>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+    </div>
 </body>
 </html>
 <script type="text/javascript" src="cordova.js"></script>

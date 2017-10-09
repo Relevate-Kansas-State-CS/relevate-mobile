@@ -5,10 +5,13 @@
 angular.module('mainApp').
     controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
-            $mdSidenav('left').toggle();
+            $mdSidenav('left').open();
         };
     }]).
-    controller('SideNavController', ['$scope', function ($scope) {
+    controller('SideNavController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.closeSideNav = function () {
+            $mdSidenav('left').close();
+        };
     }]).
     controller('FeedController', ['$scope', function ($scope) {
         $scope.currentNavItem = 'home';
