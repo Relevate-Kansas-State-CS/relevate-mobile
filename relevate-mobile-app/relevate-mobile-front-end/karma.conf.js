@@ -38,6 +38,8 @@ module.exports = function(config) {
         'www/feed-view/feedView.component.js',
         'www/quizzes-view/quizzesView.module.js',
         'www/quizzes-view/quizzesView.component.js',
+        'www/journals-view/journalsView.module.js',
+        'www/journals-view/journalsView.component.js',
         'tests/*js'
     ],
 

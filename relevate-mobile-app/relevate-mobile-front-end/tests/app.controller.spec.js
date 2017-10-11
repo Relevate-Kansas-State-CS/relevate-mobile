@@ -18,6 +18,8 @@
     beforeEach(angular.mock.module('trendingView'));
     beforeEach(angular.mock.module('recentView'));
     beforeEach(angular.mock.module('feedView'));
+    beforeEach(angular.mock.module('journalsView'));
+    beforeEach(angular.mock.module('quizzesView'));
     beforeEach(angular.mock.module('mainApp'));
     
     beforeEach(inject(function ($controller, $rootScope, $http, $cordovaInAppBrowser, $httpBackend) {
