@@ -13,13 +13,27 @@ angular.module('mainApp').
             $mdSidenav('left').close();
         };
     }]).
+    controller('ArticleDialogController', ['$scope', '$cordovaInAppBrowser', '$mdDialog', 'article', function ($scope, $cordovaInAppBrowser, $mdDialog, article) {
+        $scope.article = article;
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $scope.Close = function () {
+            $mdDialog.hide();
+        };
+    }]).
     controller('FeedController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
         $scope.currentNavItem = 'home';
     }]).
-    controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
             location: 'yes',
             clearcache: 'yes',
@@ -31,6 +45,15 @@ angular.module('mainApp').
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
     }]).
     controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {

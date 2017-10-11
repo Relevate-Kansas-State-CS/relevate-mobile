@@ -105,6 +105,7 @@ md-sidenav {
     min-width: 220px !important;
 }
 
-/*ideNavTitle {
-    justify-content: center;
-}*/
+.column-card {
+    box-shadow: none;
+    background-color: transparent;
+}
