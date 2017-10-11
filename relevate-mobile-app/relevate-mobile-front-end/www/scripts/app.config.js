@@ -9,14 +9,23 @@
               }).
               state('feed.home', {
                   url: '/home',
+                  data: {
+                      'selectedItem': 'home'
+                  }, 
                   template: '<home-view></home-view>'
               }).
               state('feed.trending', {
                   url: '/trending',
+                  data: {
+                      'selectedItem': 'trending'
+                  }, 
                   template: '<trending-view></trending-view>'
               }).
               state('feed.recent', {
                   url: '/recent',
+                  data: {
+                      'selectedItem': 'recent'
+                  }, 
                   template: '<recent-view></recent-view>'
               }).
               state('quizzes', {

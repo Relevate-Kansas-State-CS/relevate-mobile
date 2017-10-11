@@ -19,7 +19,7 @@
 <body ng-cloak ng-controller="NavigationController" ng-app="mainApp">
     <md-content ui-view md-swipe-right="openSideNav()" layout="column"></md-content>
     <div ng-controller="SideNavController" md-swipe-left="closeSideNav()">
-        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" aria-label="Side Navigation">
             <md-toolbar class="bg-gray">
                 <h1 class="md-toolbar-tools" id="sideNavTitle">Menu</h1>
             </md-toolbar>

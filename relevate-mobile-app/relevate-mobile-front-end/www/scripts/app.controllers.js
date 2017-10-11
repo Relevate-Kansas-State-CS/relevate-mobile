@@ -27,11 +27,14 @@ angular.module('mainApp').
             $mdDialog.hide();
         };
     }]).
-    controller('FeedController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+    controller('FeedController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
         $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            $scope.currentNavItem = trans.to().data.selectedItem;
+        });
     }]).
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
