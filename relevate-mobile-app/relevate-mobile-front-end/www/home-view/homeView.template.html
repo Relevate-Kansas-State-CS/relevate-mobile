@@ -1,8 +1,27 @@
-﻿<div class="md-padding" layout="row" layout-wrap layout-align="space-between">
-    <md-card flex="45" ng-repeat="article in articles track by $index" class="column-card">
-        <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" ng-click="OpenDialog(article)">
-    </md-card>
-</div>
+﻿<md-grid-list md-cols="2" md-row-height="4:3" md-gutter="6px">
+        <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
+            <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
+            <md-grid-tile-footer>
+                <h3>{{article.title}}</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+<md-grid-list md-cols="2" md-row-height="2:2" md-gutter="6px">
+    <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
+        <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
+        <md-grid-tile-footer>
+            <h3>{{article.title}}</h3>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>
+<md-grid-list md-cols="2" md-row-height="1:1" md-gutter="6px">
+    <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
+        <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
+        <md-grid-tile-footer>
+            <h3>{{article.title}}</h3>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>
 <md-card ng-repeat="article in articles track by $index" class="bg-liblue">
     <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" ng-click="OpenDialog(article)">
 </md-card>
