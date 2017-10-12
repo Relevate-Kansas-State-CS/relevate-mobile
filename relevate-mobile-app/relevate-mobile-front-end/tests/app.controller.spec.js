@@ -21,18 +21,6 @@
     beforeEach(angular.mock.module('journalsView'));
     beforeEach(angular.mock.module('quizzesView'));
     beforeEach(angular.mock.module('mainApp'));
-    
-    beforeEach(inject(function ($controller, $rootScope, $http, $cordovaInAppBrowser, $httpBackend) {
-        scope = $rootScope.$new();
-        http = $http;
-        cordovaInAppBrowser = $cordovaInAppBrowser;
-        httpBackend = $httpBackend;
-        NavController = $controller('NavigationController', {
-            $scope: scope,
-            $http: http,
-            $cordovaInAppBrowser: cordovaInAppBrowser
-        });
-    }));
 
     it('NavigationController Defined', inject(function ($controller, $rootScope, $mdSidenav) {
         scope = $rootScope.$new();
@@ -54,22 +42,26 @@
         expect(controller).toBeDefined();
     }));
 
-    it('FeedController Defined', inject(function ($controller, $rootScope) {
+    it('FeedController Defined', inject(function ($controller, $rootScope, $transitions) {
         scope = $rootScope.$new();
+        var transitions = $transitions;
         controller = $controller('FeedController', {
-            $scope: scope
+            $scope: scope,
+            $transitions: transitions
         });
         expect(controller).toBeDefined();
     }));
 
-    it('HomeTabController Defined', inject(function ($controller, $rootScope, $http, $cordovaInAppBrowser) {
+    it('HomeTabController Defined', inject(function ($controller, $rootScope, $http, $cordovaInAppBrowser, $mdDialog) {
         scope = $rootScope.$new();
         var http = $http;
         var cordovaInAppBrowser = $cordovaInAppBrowser;
+        var mdDialog = $mdDialog;
         controller = $controller('HomeTabController', {
             $scope: scope,
             $http: http,
-            $cordovaInAppBrowser: cordovaInAppBrowser
+            $cordovaInAppBrowser: cordovaInAppBrowser,
+            $mdDialog: mdDialog
         });
         expect(controller).toBeDefined();
     }));

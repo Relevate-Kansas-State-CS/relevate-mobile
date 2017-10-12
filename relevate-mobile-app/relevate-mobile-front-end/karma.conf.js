@@ -18,7 +18,7 @@ module.exports = function(config) {
         'www/lib/angular-animate/angular-animate.js',
         'www/lib/angular-aria/angular-aria.js',
         'www/lib/angular-messages/angular-messages.js',
-        'www/lib/angular-ui-router/release/angular-ui-router.js',
+        'www/lib/angular-ui-router/files/angular-ui-router.js',
         'www/lib/angular-material/angular-material.js',
         'www/lib/ngstorage/ngStorage.js',
         'www/lib/angular-material-icons/angular-material-icons.js',
