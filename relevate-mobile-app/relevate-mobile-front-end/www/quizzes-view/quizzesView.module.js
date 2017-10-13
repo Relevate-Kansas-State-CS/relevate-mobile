@@ -1,6 +1,6 @@
-﻿/*
-    This module contains the components of the "Quizzes" tab in the "Activities" section.
-    More details on the contents of this module can be found in its corresponding component file: "quizzesView.component.js"
-*/
-
+﻿/**
+ * @module quizzesView
+ * @requires ngCordova
+ * @description This is the quizzes view module for the application.
+ */
 angular.module('quizzesView', ['ngCordova']);

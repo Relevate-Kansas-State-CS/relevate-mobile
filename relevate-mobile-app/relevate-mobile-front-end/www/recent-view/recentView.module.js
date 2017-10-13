@@ -1,6 +1,6 @@
-﻿/*
-    This module contains the components of the "Recent" tab.
-    More details on the contents of this module can be found in its corresponding component file: "recentView.component.js"
-*/
-
+﻿/**
+ * @module recentView
+ * @requires ngCordova
+ * @description This is the recent view module for the application.
+ */
 angular.module('recentView', ['ngCordova']);

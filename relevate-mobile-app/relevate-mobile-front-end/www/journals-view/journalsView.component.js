@@ -1,9 +1,8 @@
-﻿/*  
-    This component controls basic aspects of the "Journals" tab in the "Activities" section.
-    
-    Of particular importance is: $http.get('data/journals_art.json') .... Which specifies a .json file (located in the data folder) that contains data about what the Journals tab should display.
-*/
-
+﻿/**
+ * @function component
+ * @memberof module:journalsView
+ * @description This creates the component for a journals view based off an html template and the JournalsTabController.
+ */
 angular.
     module('journalsView').
     component('journalsView', {

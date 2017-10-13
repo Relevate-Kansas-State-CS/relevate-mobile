@@ -1,6 +1,6 @@
-﻿/*
-    This module contains the components of the "Journals" tab in the "Activities" section.
-    More details on the contents of this module can be found in its corresponding component file: "journalsView.component.js"
-*/
-
+﻿/**
+ * @module journalsView
+ * @requires ngCordova
+ * @description This is the journals view module for the application.
+ */
 angular.module('journalsView', ['ngCordova']);

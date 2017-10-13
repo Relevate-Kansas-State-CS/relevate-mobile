@@ -1,6 +1,6 @@
-﻿/*
-    This module contains the components of the "Trending" tab.
-    More details on the contents of this module can be found in its corresponding component file: "trendingView.component.js"
-*/
-
+﻿/**
+ * @module trendingView
+ * @requires ngCordova
+ * @description This is the trending view module for the application.
+ */
 angular.module('trendingView', ['ngCordova']);

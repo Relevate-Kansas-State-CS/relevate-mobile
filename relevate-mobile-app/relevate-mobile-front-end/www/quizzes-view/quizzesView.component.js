@@ -1,9 +1,8 @@
-﻿/*  
-    This component controls basic aspects of the "Quizzes" tab in the "Activities" section.
-    
-    Of particular importance is: $http.get('data/quizzes_art.json') .... Which specifies a .json file (located in the data folder) that contains data about what the Quizzes tab should display.
-*/
-
+﻿/**
+ * @function component
+ * @memberof module:quizzesView
+ * @description This creates the component for a quizzes view based off an html template and the QuizzesTabController.
+ */
 angular.
     module('quizzesView').
     component('quizzesView', {
