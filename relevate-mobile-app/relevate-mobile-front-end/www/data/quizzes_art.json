@@ -22,7 +22,7 @@
 [
   {
     "quiz_title": "Mock Quiz Title",
-    "art_image": "images/quizzes/quiz-placeholder-image.png",
+    "quiz_image": "images/quizzes/quiz-placeholder-image.png",
     "quiz_description": "Placeholder Description",
     "contributor_pic": "images/contributors/profile-placeholder.jpg",
     "contributor_name": "Jane A. Contributor",

@@ -1,6 +1,5 @@
 ﻿<!--
-    This file governs the appearance and function of the Journals tab under the Activities section.
-    Credit to http://www.html.am/templates/downloads/view-source.cfm?template=frames-templates/2-rows-2-columns-a.cfm for the HTML template starting point.
+    This file governs the appearance and function of the Journals section.
 -->
 
 <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
@@ -12,3 +11,32 @@
         <h2 layout="start center" md-truncate class="white">Journals</h2>
     </div>
 </md-toolbar>
+
+<!--- Note: The outer <div layout> and <div fex> sections just pad the borders a bit for cleaner presentation-->
+<div layout="row" layout-padding>
+    <div flex>
+        <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Welcome</span>
+                    <span class="md-subhead">What's on your mind?</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media"></div>
+                    <img ng-src="images/journals/thought-bubble.png" class="md-card-image" alt="Journal Image Placeholder">
+                </md-card-title-media>
+            </md-card-title>
+        </md-card>
+        </div>
+
+<form class="journal-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Journal Text" value="Let's begin...">
+    </mat-form-field>
+</form>
+
+<md-button class="bg-liblue">Save</md-button>
+    </div>
+</div>
+
