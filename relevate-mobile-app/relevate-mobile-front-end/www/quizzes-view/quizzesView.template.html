@@ -34,10 +34,10 @@
 <!-- It might be a good idea to have some kind of visual divider between quiz cards -->
 
 <div class="quiz-card">
-    <md-card>
+    <md-card ng-repeat="quiz in quizzes track by $index">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">7 Signs of a Bad First Impression</span>
+                <span class="md-headline">{{quiz.quiz_title}}</span>
             </md-card-title-text>
         </md-card-title>
         <md-card-content>

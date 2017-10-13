@@ -72,7 +72,10 @@ angular.module('mainApp').
         };
         $scope.currentNavItem = 'home';
         $transitions.onSuccess({}, function (trans) {
-            $scope.currentNavItem = trans.to().data.selectedItem;
+            var path = trans.to();
+            if (path === 'feed') {
+                $scope.currentNavItem = trans.to().data.selectedItem;
+            }
         });
     }]).
     /**
@@ -180,7 +183,7 @@ angular.module('mainApp').
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/quizzes_art.json').then(function (response) {
-            $scope.articles = response.data;
+            $scope.quizzes = response.data;
         });
     }]).
     /**
