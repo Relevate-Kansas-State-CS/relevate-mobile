@@ -73,8 +73,8 @@ angular.module('mainApp').
         $scope.currentNavItem = 'home';
         $transitions.onSuccess({}, function (trans) {
             var path = trans.to();
-            if (path === 'feed') {
-                $scope.currentNavItem = trans.to().data.selectedItem;
+            if (path.name === 'feed' || path.name === 'feed.home' || path.name === 'feed.trending' || path.name === 'feed.recent') {
+                $scope.currentNavItem = path.data.selectedItem;
             }
         });
     }]).
