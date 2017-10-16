@@ -12,7 +12,7 @@
     </div>
 </md-toolbar>
 
-<!--- Note: The outer <div layout> and <div fex> sections just pad the borders a bit for cleaner presentation-->
+<!--- Note: The outer <div layout> and <div flex> sections are meant to pad the borders a bit for cleaner presentation-->
 <div layout="row" layout-padding>
     <div flex>
         <div flex-xs flex-gt-xs="50" layout="column">
@@ -21,22 +21,21 @@
                 <md-card-title-text>
                     <span class="md-headline">Welcome</span>
                     <span class="md-subhead">What's on your mind?</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media"></div>
-                    <img ng-src="images/journals/thought-bubble.png" class="md-card-image" alt="Journal Image Placeholder">
-                </md-card-title-media>
+                </md-card-title-text>                
             </md-card-title>
+            <md-card-content>
+                <div class="md-media-sm card-media"></div>
+                <img ng-src="images/journals/journal-stock-image-smaller.png" class="md-card-image" alt="Journal Image Placeholder" layout="column" layout-align="center center">
+                <md-input-container class="md-block" layout="column" layout-align="center center">
+                    <label>Journal Space</label>
+                    <textarea ng-model="user.journal" md-maxlength="1000" rows="2" md-select-on-focus></textarea>
+                </md-input-container>
+                <md-card-actions layout="column" layout-align="center stretch">
+                    <md-button class="bg-dkblue">Save Journal</md-button>
+                </md-card-actions>
+            </md-card-content>            
         </md-card>
         </div>
-
-<form class="journal-form">
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Journal Text" value="Let's begin...">
-    </mat-form-field>
-</form>
-
-<md-button class="bg-liblue">Save</md-button>
     </div>
 </div>
 
