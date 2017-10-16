@@ -1,5 +1,5 @@
 ﻿/*
-    Note: Potential .json format for questions and answer_choices could be printing a question, then below it its answer options, then the next question, followed by its options.
+    Note: Potential .json format for quiz questions and answer_choices could be printing a question, then below it its answer options, then the next question, followed by its options.
     This format could allow a single .json array to store all the answer choices instead of having a need for a dynamic number of answer-holding arrays for each quiz question.
     
     Example of questions for 4 answers each:
