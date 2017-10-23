@@ -29,7 +29,18 @@
     "contr_pic": "images/contributors/profile-placeholder.png",
     "contr_name": "Relevate Account",
     "publish": "October 5, 2015",
-    "update":  "October 5, 2015",
+    "update": "October 5, 2015",
     "tags": [ "Physical", "Emotional", "Sexual Violence", "Communication", "Conflict", "Dating", "Courtship", "Relationship Development", "Marriage", "Stress", "Resilience", "Coping" ]
+  },
+  {
+    "title": "Do your family and friends have to like your partner?",
+    "art_image": "images/articles/romeo_and_juliet_660.jpg",
+    "desc": "According to research, external support of your relationship is vital for it's longevity. This article provides a critique to the \"Romeo & Juliet Phenomenon.\"",
+    "url": "http://www.scienceofrelationships.com/home/2017/4/17/romeo-and-juliet-would-have-broken-upquickly.html",
+    "contr_pic": "images/contributors/Monk_bio_pic.JPG",
+    "contr_name": "Kale Monk",
+    "publish": "April 17, 2017",
+    "update": "April 17, 2017",
+    "tags": [ "Breaking Up", "Social Pressure", "Support" ]
   }
 ]

@@ -5,26 +5,14 @@
                 <h3>{{article.title}}</h3>
             </md-grid-tile-footer>
         </md-grid-tile>
-    </md-grid-list>
-<md-grid-list md-cols="2" md-row-height="2:2" md-gutter="6px">
-    <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
-        <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
-        <md-grid-tile-footer>
-            <h3>{{article.title}}</h3>
-        </md-grid-tile-footer>
-    </md-grid-tile>
 </md-grid-list>
-<md-grid-list md-cols="2" md-row-height="1:1" md-gutter="6px">
-    <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
-        <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
-        <md-grid-tile-footer>
-            <h3>{{article.title}}</h3>
-        </md-grid-tile-footer>
-    </md-grid-tile>
-</md-grid-list>
-<md-card ng-repeat="article in articles track by $index" class="bg-liblue">
-    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" ng-click="OpenDialog(article)">
-</md-card>
+<div layout="row" layout-wrap>
+    <md-card ng-repeat="article in articles track by $index" class="bg-liblue" ng-click="OpenDialog(article)" flex="45">
+        <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" style="min-height: 120px;max-height: 120px;" />
+        <md-card-content layout-padding>
+            <p>{{article.desc | limitTo:50}}...</p>
+    </md-card>
+</div>
 <md-card ng-repeat="article in articles track by $index" class="bg-liblue" ng-click="OpenDialog(article)">
     <md-card-title>
         <md-card-title-text>
@@ -40,33 +28,6 @@
         </md-card-title-text>
     </md-card-title>
     <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
-    <md-card-actions layout="row" layout-align="end center">
-        <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="80" width="60" />
-        <p style="padding-left: 5px;">Contributed by <a ng-click="OpenContri(article.contr_name)">{{article.contr_name}}</a></p>
-        <md-button class="md-icon-button" aria-label="Favorite" layout="end center">
-            <ng-md-icon icon="favorite" class="purple"></ng-md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="Share" layout="end center">
-            <ng-md-icon icon="share" class="gray"></ng-md-icon>
-        </md-button>
-    </md-card-actions>
-</md-card>
-<md-card ng-repeat="article in articles track by $index" class="bg-liblue">
-    <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
-        </md-card-title-text>
-    </md-card-title>
-    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
-    <md-card-content layout-padding>
-        <div flex layout="row">
-            <p>{{article.desc}}</p>
-        </div>
-        <div flex layout="row">
-            <a ng-click="OpenArticle(article.url)" class="gray">Read More...</a>
-        </div>
-        <md-divider></md-divider>
-    </md-card-content>
     <md-card-actions layout="row" layout-align="end center">
         <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="80" width="60" />
         <p style="padding-left: 5px;">Contributed by <a ng-click="OpenContri(article.contr_name)">{{article.contr_name}}</a></p>
