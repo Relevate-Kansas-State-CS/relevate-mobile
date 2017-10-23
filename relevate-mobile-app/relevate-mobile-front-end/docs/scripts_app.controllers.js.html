@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>scripts/app.controllers.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-controllers.html">controllers</a><ul class='methods'><li data-type='method'><a href="module-controllers.html#~ArticleDialogController">ArticleDialogController</a></li><li data-type='method'><a href="module-controllers.html#~FeedController">FeedController</a></li><li data-type='method'><a href="module-controllers.html#~HomeTabController">HomeTabController</a></li><li data-type='method'><a href="module-controllers.html#~JournalsTabController">JournalsTabController</a></li><li data-type='method'><a href="module-controllers.html#~NavigationController">NavigationController</a></li><li data-type='method'><a href="module-controllers.html#~QuizzesTabController">QuizzesTabController</a></li><li data-type='method'><a href="module-controllers.html#~RecentTabController">RecentTabController</a></li><li data-type='method'><a href="module-controllers.html#~SideNavController">SideNavController</a></li><li data-type='method'><a href="module-controllers.html#~TrendingTabController">TrendingTabController</a></li></ul></li><li><a href="module-feedView.html">feedView</a><ul class='methods'><li data-type='method'><a href="module-feedView.html#.component">component</a></li></ul></li><li><a href="module-homeView.html">homeView</a><ul class='methods'><li data-type='method'><a href="module-homeView.html#.component">component</a></li></ul></li><li><a href="module-journalsView.html">journalsView</a><ul class='methods'><li data-type='method'><a href="module-journalsView.html#.component">component</a></li></ul></li><li><a href="module-mainApp.html">mainApp</a><ul class='methods'><li data-type='method'><a href="module-mainApp.html#.config">config</a></li></ul></li><li><a href="module-quizzesView.html">quizzesView</a><ul class='methods'><li data-type='method'><a href="module-quizzesView.html#.component">component</a></li></ul></li><li><a href="module-recentView.html">recentView</a><ul class='methods'><li data-type='method'><a href="module-recentView.html#.component">component</a></li></ul></li><li><a href="module-trendingView.html">trendingView</a><ul class='methods'><li data-type='method'><a href="module-trendingView.html#.component">component</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">scripts/app.controllers.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿/**
+ * @module controllers
+ * @description These are all the controllers for the application.
+ */
+angular.module('mainApp').
+    /**
+     * @function NavigationController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav Used to configure the side navigation bar.
+     * @description This controller handles basic navigation on the application.
+     */
+    controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+    }]).
+    /**
+     * @function SideNavController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav Used to configure the side navigation bar.
+     * @description This controller handles navigation from the side navigation bar.
+     */
+    controller('SideNavController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.closeSideNav = function () {
+            $mdSidenav('left').close();
+        };
+    }]).
+    /**
+     * @function ArticleDialogController
+     * @requires $scope
+     * @requires $cordovaInAppBrowser
+     * @requires $mdDialog
+     * @requires article
+     * @see HomeTabController
+     * @param $scope The scope of the controller.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdDialog Used to create dialogs in the application.
+     * @param article The article data for this controller
+     * @description This controller handles an article dialog event.
+     */
+    controller('ArticleDialogController', ['$scope', '$cordovaInAppBrowser', '$mdDialog', 'article', function ($scope, $cordovaInAppBrowser, $mdDialog, article) {
+        $scope.article = article;
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $scope.Close = function () {
+            $mdDialog.hide();
+        };
+    }]).
+    /**
+     * @function FeedController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $transitions
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav Used to configure the side navigation bar.
+     * @param $transitions Used to look at routing changes.
+     * @description This is the main controller for the feed.
+     */
+    controller('FeedController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            var path = trans.to();
+            if (path.name === 'feed' || path.name === 'feed.home' || path.name === 'feed.trending' || path.name === 'feed.recent') {
+                $scope.currentNavItem = path.data.selectedItem;
+            }
+        });
+    }]).
+    /**
+     * @function HomeTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdDialog
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdDialog Used to create dialogs in the application.
+     * @description This controller handles the home tab of the feed view.
+     */
+    controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/home_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
+    }]).
+    /**
+     * @function TrendingTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @description This is the function for the NavigationController.
+     */
+    controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/trending_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
+    }]).
+    /**
+     * @function RecentTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @description This is the controller for the recent tab of the feed view.
+     */
+    controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/recent_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
+    }]).
+    /**
+     * @function QuizzesTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the quizzes view.
+     */
+    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/quizzes_art.json').then(function (response) {
+            $scope.quizzes = response.data;
+        });
+    }]).
+    /**
+     * @function JournalsTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the journals view.
+     */
+    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/journals_art.json').then(function (response) {
+            $scope.articles = response.data;
+        });
+    }]);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 13 2017 14:44:22 GMT-0500 (Central Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

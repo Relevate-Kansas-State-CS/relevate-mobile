@@ -1,82 +1,25 @@
-﻿<md-card ng-repeat="article in articles track by $index" class="bg-liblue">
+﻿<md-grid-list md-cols="2" md-row-height="4:3" md-gutter="6px">
+        <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
+            <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
+            <md-grid-tile-footer>
+                <h3>{{article.title}}</h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+</md-grid-list>
+<div layout="row" layout-wrap>
+    <md-card ng-repeat="article in articles track by $index" class="bg-liblue" ng-click="OpenDialog(article)" flex="45">
+        <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" style="min-height: 120px;max-height: 120px;" />
+        <md-card-content layout-padding>
+            <p>{{article.desc | limitTo:50}}...</p>
+    </md-card>
+</div>
+<md-card ng-repeat="article in articles track by $index" class="bg-liblue" ng-click="OpenDialog(article)">
     <md-card-title>
         <md-card-title-text>
-            <span class="md-headline"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
+            <span class="md-headline">{{article.title}}</span>
         </md-card-title-text>
     </md-card-title>
     <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
-    <md-card-content layout-padding>
-        <div flex layout="row">
-            <p>{{article.desc}}</p>
-        </div>
-        <div flex layout="row">
-            <a ng-click="OpenArticle(article.url)" class="gray">Read More...</a>
-        </div>
-        <md-divider></md-divider>
-        <div flex layout="row">
-            <div flex="75">
-                <span class="md-subhead gray">Article Details</span>
-                <p style="padding-right: 5px;">Published on {{article.publish}}. Updated on {{article.update}}. Contributed by <a ng-click="OpenContri(article.contr_name)" class="gray">{{article.contr_name}}</a></p>
-            </div>
-            <div flex="25">
-                <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="106" width="80" />
-            </div>
-        </div>
-        <md-divider></md-divider>
-        <div flex layout="row">
-            <span class="md-subhead gray">Tags</span>
-        </div>
-        <div flex layout="row">
-            <md-chips ng-model="article.tags" readonly="true">
-                <md-chip-template>{{$chip}}</md-chip-template>
-            </md-chips>
-        </div>
-        <md-divider></md-divider>
-    </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="Favorite">
-            <ng-md-icon icon="favorite" class="purple"></ng-md-icon>
-        </md-button>
-        <md-button  class="md-icon-button" aria-label="Share">
-            <ng-md-icon icon="share" class="gray"></ng-md-icon>
-        </md-button>
-    </md-card-actions>
-</md-card>
-<md-card ng-repeat="article in articles track by $index" class="bg-liblue">
-    <md-card-title>
-        <md-card-title-text flex="70">
-            <span class="md-headline"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
-            <span class="md-subhead gray" style="padding-top:5px;">Contributed by <a ng-click="OpenContri(article.contr_name)">{{article.contr_name}}</a></span>
-        </md-card-title-text>
-        <md-card-title-media flex="30">
-            <div class="md-media-md card-media"><img ng-src="{{article.contr_pic}}" style="height: 120px!important;width: 90px!important;" alt="Article Image"></div>
-        </md-card-title-media>
-    </md-card-title>
-    <md-card-content layout-padding>
-        <md-divider></md-divider>
-        <div flex layout="column">
-            <p>{{article.desc}}</p>
-            <a ng-click="OpenArticle(article.url)" class="gray">Read More...</a>
-        </div>
-        <md-divider></md-divider>
-        <div flex layout="row">
-            <span class="md-subhead gray">Tags</span>
-        </div>
-        <div flex layout="row">
-            <md-chips ng-model="article.tags" readonly="true">
-                <md-chip-template>{{$chip}}</md-chip-template>
-            </md-chips>
-        </div>
-        <md-divider></md-divider>
-    </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button class="md-icon-button" aria-label="Favorite">
-            <ng-md-icon icon="favorite" class="purple"></ng-md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="Share">
-            <ng-md-icon icon="share" class="gray"></ng-md-icon>
-        </md-button>
-    </md-card-actions>
 </md-card>
 <md-card ng-repeat="article in articles track by $index" class="bg-liblue">
     <md-card-title>
@@ -85,15 +28,6 @@
         </md-card-title-text>
     </md-card-title>
     <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
-    <md-card-content layout-padding>
-        <div flex layout="row">
-            <p>{{article.desc}}</p>
-        </div>
-        <div flex layout="row">
-            <a ng-click="OpenArticle(article.url)" class="gray">Read More...</a>
-        </div>
-        <md-divider></md-divider>
-    </md-card-content>
     <md-card-actions layout="row" layout-align="end center">
         <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="80" width="60" />
         <p style="padding-left: 5px;">Contributed by <a ng-click="OpenContri(article.contr_name)">{{article.contr_name}}</a></p>

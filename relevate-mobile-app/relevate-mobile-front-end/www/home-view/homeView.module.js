@@ -1,6 +1,6 @@
-﻿/*
-    This module contains the components of the "Home" tab.
-    More details on the contents of this module can be found in its corresponding component file: "homeView.component.js"
-*/
-
+﻿/**
+ * @module homeView
+ * @requires ngCordova
+ * @description This is the home view module for the application.
+ */
 angular.module('homeView', ['ngCordova']);

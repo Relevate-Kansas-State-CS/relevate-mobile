@@ -1,0 +1,27 @@
+﻿<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+    <div class="md-toolbar-tools" layout-align="space-between center">
+        <md-button aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+            <ng-md-icon icon="menu" class="white"></ng-md-icon>
+        </md-button>
+        <img layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" style="padding-left: 4px;"/>
+        <md-input-container class="md-block" md-no-float aria-label="Input Field">
+            <input class="white" placeholder="Search" type="text">
+        </md-input-container>
+        <md-button class="md-icon-button" aria-label="Search">
+            <ng-md-icon icon="search" class="white"></ng-md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+    <div flex layout="row" layout-align="space-around center">
+        <md-nav-item md-nav-href="index.html#!/feed/home" name="home">
+            Home
+        </md-nav-item>
+        <md-nav-item md-nav-href="index.html#!/feed/trending" name="trending">
+            Trending
+        </md-nav-item>
+        <md-nav-item md-nav-href="index.html#!/feed/recent" name="recent">
+            Recent
+        </md-nav-item>
+    </div>
+</md-nav-bar>

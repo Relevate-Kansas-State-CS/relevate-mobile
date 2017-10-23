@@ -1,0 +1,24 @@
+﻿<md-dialog aria-label="{{article.title}}">
+    <md-toolbar class="bg-liblue">
+        <div class="md-toolbar-tools">
+            <h2>{{article.title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="Close()">
+                <ng-md-icon icon="clear" class="gray"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding layout="column">
+        <p>{{article.desc}}</p>
+        <a ng-click="OpenArticle(article.url)" class="gray">Read More...</a>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" layout-align="space-between center" style="border-top: 1px solid #222;">
+        <p>Contributed by <a ng-click="OpenContri(article.contr_name)">{{article.contr_name}}</a></p>
+        <md-button class="md-icon-button" aria-label="Favorite">
+            <ng-md-icon icon="favorite" class="purple"></ng-md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Share">
+            <ng-md-icon icon="share" class="gray"></ng-md-icon>
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

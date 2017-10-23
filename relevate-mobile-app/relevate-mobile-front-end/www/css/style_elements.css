@@ -1,71 +1,111 @@
 ﻿md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
-    color: #79beee!important;
-    background: #79beee!important;
+    color: #79beee !important;
+    background: #79beee !important;
 }
+
 ._md-nav-button, ._md-nav-button-text {
-    color: #79beee!important;
+    color: #79beee !important;
 }
+
 .orange {
-    color: #ee7600!important;
+    color: #ee7600 !important;
 }
+
 .bg-orange {
-    color: #ffffff!important;
-    background: #ee7600!important;
+    color: #ffffff !important;
+    background: #ee7600 !important;
 }
+
 .dark-blue {
-    color: #1e87f0!important;
+    color: #1e87f0 !important;
 }
+
 .bg-dkblue {
-    color: #ffffff!important;
-    background: #1e87f0!important;
+    color: #ffffff !important;
+    background: #1e87f0 !important;
 }
+
 .purple {
-    color: #8a84e2!important;
+    color: #8a84e2 !important;
 }
+
 .bg-purple {
-    color: #ffffff!important;
-    background: #8a84e2!important;
+    color: #ffffff !important;
+    background: #8a84e2 !important;
 }
+
 .light-blue {
-    color: #79beee!important;
+    color: #79beee !important;
 }
+
 .bg-liblue {
-    color: #ffffff!important;
-    background: #79beee!important;
+    color: #ffffff !important;
+    background: #79beee !important;
 }
+
 .gray {
-    color: #222!important;
+    color: #222 !important;
 }
+
 .bg-gray {
-    color: #ffffff!important;
-    background: #222!important;
+    color: #ffffff !important;
+    background: #222 !important;
 }
+
 .black {
-    color: #333!important;
+    color: #333 !important;
 }
+
 .bg-black {
-    color: #ffffff!important;
-    background: #333!important;
+    color: #ffffff !important;
+    background: #333 !important;
 }
+
 .white {
-    color: #ffffff!important;
+    color: #ffffff !important;
 }
+
 .img-circle {
     border-radius: 50%;
 }
+
 md-divider {
-    padding: 0!important;
+    padding: 0 !important;
 }
+
 md-toolbar md-input-container div.md-errors-spacer {
     min-height: 0px;
     min-width: 0px;
 }
+
 md-input-container .md-input {
-    border-color: #ffffff!important;
+    border-color: #ffffff !important;
 }
+
 a {
     text-decoration: underline;
 }
+
 md-chips.md-default-theme .md-chips, md-chips .md-chips {
     box-shadow: none;
+}
+
+md-backdrop {
+    height: 100% !important;
+    position: fixed !important;
+}
+
+.md-sidenav-left {
+    position: fixed;
+}
+
+md-sidenav {
+    width: 220px !important;
+    max-width: 220px !important;
+    min-width: 220px !important;
+}
+
+.column-card {
+    box-shadow: none;
+    background-color: transparent;
 }
