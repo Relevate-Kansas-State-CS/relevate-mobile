@@ -187,6 +187,34 @@ angular.module('mainApp').
         });
     }]).
     /**
+     * @function OpenQuizController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
+     */
+    controller('OpenQuizController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'yes',
+            clearcache: 'yes',
+            toolbar: 'no'
+        };
+        $scope.OpenArticle = function (url) {
+            $cordovaInAppBrowser.open(url, '_blank', options);
+        };
+        $http.get('data/open_quiz.json').then(function (response) {
+            $scope.quizData = response.data;
+        });
+    }]).
+    /**
      * @function JournalsTabController
      * @requires $scope
      * @requires $http
