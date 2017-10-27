@@ -170,7 +170,7 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the quizzes view.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', '$state', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
@@ -182,6 +182,9 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('open-quiz', { quiz: quizObject });
+        }
         $http.get('data/quizzes_art.json').then(function (response) {
             $scope.quizzes = response.data;
         });
@@ -198,7 +201,7 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+    controller('OpenQuizController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', '$stateParams', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav, $stateParams) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
@@ -210,6 +213,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
+        $scope.quiz = $stateParams.quiz;
         $http.get('data/open_quiz.json').then(function (response) {
             $scope.quizData = response.data;
         });

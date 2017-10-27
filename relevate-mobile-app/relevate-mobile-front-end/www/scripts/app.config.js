@@ -41,7 +41,8 @@
               }).
               state('open-quiz', {
                   url: '/open-quiz',
-                  template: '<open-quiz-view></open-quiz-view><div ui-view></div>'
+                  template: '<open-quiz-view></open-quiz-view>',
+                  params: { quiz: null }
               }).
               state('journals', {
                   url: '/journals',
