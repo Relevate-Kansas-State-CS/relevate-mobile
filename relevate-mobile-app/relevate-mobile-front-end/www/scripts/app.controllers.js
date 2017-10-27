@@ -162,25 +162,15 @@ angular.module('mainApp').
      * @function QuizzesTabController
      * @requires $scope
      * @requires $http
-     * @requires $cordovaInAppBrowser
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the quizzes view.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', '$state', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav, $state) {
+    controller('QuizzesTabController', ['$scope', '$http', '$mdSidenav', '$state', function ($scope, $http, $mdSidenav, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $scope.OpenQuiz = function (quizObject) {
             $state.go('open-quiz', { quiz: quizObject });
@@ -192,31 +182,16 @@ angular.module('mainApp').
     /**
      * @function OpenQuizController
      * @requires $scope
-     * @requires $http
-     * @requires $cordovaInAppBrowser
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', '$stateParams', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav, $stateParams) {
+    controller('OpenQuizController', ['$scope', '$http', '$mdSidenav', '$stateParams', function ($scope, $mdSidenav, $stateParams) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
-        };
         $scope.quiz = $stateParams.quiz;
-        $http.get('data/open_quiz.json').then(function (response) {
-            $scope.quizData = response.data;
-        });
     }]).
     /**
      * @function JournalsTabController
