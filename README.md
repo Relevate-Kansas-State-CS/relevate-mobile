@@ -8,8 +8,8 @@ It uses AngularJS, AngularJS Material, and Cordova.
 
 ##Github Page and Online Documentation
 
-Our Github Page is located at [a link](https://github.com/Relevate-Kansas-State-CS/relevate-mobile).
-Our online documentation is located at [a link](https://relevate-kansas-state-cs.github.io/relevate-mobile/index.html).
+Our Github Page is located [here](https://github.com/Relevate-Kansas-State-CS/relevate-mobile).
+Our online documentation is located [here](https://relevate-kansas-state-cs.github.io/relevate-mobile/index.html).
 
 ## Generating Documentation
 Navigate to main folder and do the following:
