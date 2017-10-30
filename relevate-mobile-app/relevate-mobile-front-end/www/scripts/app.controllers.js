@@ -99,7 +99,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/home_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/home').then(function (response) {
             $scope.articles = response.data;
         });
         $scope.OpenDialog = function (art) {
@@ -131,7 +131,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/trending_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/trending').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -154,7 +154,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/recent_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/recent').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -175,7 +175,7 @@ angular.module('mainApp').
         $scope.OpenQuiz = function (quizObject) {
             $state.go('open-quiz', { quiz: quizObject });
         }
-        $http.get('data/quizzes_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/quizzes').then(function (response) {
             $scope.quizzes = response.data;
         });
     }]).
@@ -187,7 +187,7 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$http', '$mdSidenav', '$stateParams', function ($scope, $mdSidenav, $stateParams) {
+    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', function ($scope, $mdSidenav, $stateParams) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
@@ -217,7 +217,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/journals_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/journals').then(function (response) {
             $scope.articles = response.data;
         });
     }]);
