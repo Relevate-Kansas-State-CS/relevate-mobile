@@ -11,7 +11,7 @@ Our Github Page is located [here](https://github.com/Relevate-Kansas-State-CS/re
 Our online documentation is located [here](https://relevate-kansas-state-cs.github.io/relevate-mobile/index.html).
 
 ## Generating Documentation
-Navigate to main folder and do the following:
+Navigate to main git folder in node command prompt and run the following:
 
 ```bash
 $ npm run-script generate-docs
