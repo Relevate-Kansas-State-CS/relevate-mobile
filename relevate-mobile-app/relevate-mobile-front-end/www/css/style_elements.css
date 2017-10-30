@@ -109,3 +109,11 @@ md-sidenav {
     box-shadow: none;
     background-color: transparent;
 }
+
+.card-odd {
+    margin-left: 0;
+}
+
+.card-even {
+    margin-right: 0;
+}
