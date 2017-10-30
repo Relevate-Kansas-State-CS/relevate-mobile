@@ -159,31 +159,6 @@ angular.module('mainApp').
         });
     }]).
     /**
-     * @function FollowingTabController
-     * @requires $scope
-     * @requires $http
-     * @requires $cordovaInAppBrowser
-     * @requires $mdSidenav
-     * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the following view.
-     */
-    controller('FollowingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
-        $scope.openSideNav = function () {
-            $mdSidenav('left').open();
-        };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $http.get('data/following_art.json').then(function (response) {
-            $scope.following = response.data;
-        });
-    }]).
-    /**
      * @function QuizzesTabController
      * @requires $scope
      * @requires $http

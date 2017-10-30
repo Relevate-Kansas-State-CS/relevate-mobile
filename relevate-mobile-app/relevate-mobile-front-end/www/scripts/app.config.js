@@ -35,10 +35,6 @@
                   }, 
                   template: '<recent-view></recent-view>'
               }).
-              state('following', {
-                  url: '/following',
-                  template: '<following-view></following-view><div ui-view></div>'
-              }).
               state('quizzes', {
                   url: '/quizzes',
                   template: '<quizzes-view></quizzes-view><div ui-view></div>'
