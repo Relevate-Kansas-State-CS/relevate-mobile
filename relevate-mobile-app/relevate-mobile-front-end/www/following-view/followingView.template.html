@@ -1,0 +1,26 @@
+﻿<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+    <div class="md-toolbar-tools">
+        <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+            <ng-md-icon icon="menu" class="white"></ng-md-icon>
+        </md-button>
+        <img layout-align="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
+        <h2 layout-align="start center" md-truncate class="white">Following</h2>
+    </div>
+</md-toolbar>
+
+<div class="following-card">
+    <md-card ng-repeat="follow in following track by $index">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{follow.name}}</span>
+                <span class="md-subhead">{{follow.accolades}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"></div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button>Unfollow</md-button>
+        </md-card-actions>
+    </md-card>
+</div>
