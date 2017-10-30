@@ -6,8 +6,7 @@ It uses AngularJS, AngularJS Material, and Cordova.
 
 ![Home ScreenShot](https://github.com/Relevate-Kansas-State-CS/relevate-mobile/blob/master/relevate-mobile-app/relevate-mobile-front-end/www/images/StartCapture.PNG)
 
-##Github Page and Online Documentation
-
+## Github Page and Online Documentation
 Our Github Page is located [here](https://github.com/Relevate-Kansas-State-CS/relevate-mobile).
 Our online documentation is located [here](https://relevate-kansas-state-cs.github.io/relevate-mobile/index.html).
 
