@@ -11,6 +11,7 @@
  * @requires homeView
  * @requires trendingView
  * @requires recentView
+ * @requires followingView
  * @requires quizzesView
  * @requires journalsView
  * @requires feedView
@@ -29,6 +30,7 @@ angular.module('mainApp', [
     'homeView',
     'trendingView',
     'recentView',
+    'followingView',
     'quizzesView',
     'journalsView',
     'feedView'
