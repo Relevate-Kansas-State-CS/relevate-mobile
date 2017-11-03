@@ -4,6 +4,11 @@ const app = express();
 var fs = require('fs');
 var port = process.env.PORT || 1337;
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 app.get('/', function (req, res) {
     res.send('Hello World!');
 });
