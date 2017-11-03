@@ -25,6 +25,10 @@ app.get('/recent', function (req, res) {
     res.json(JSON.parse(fs.readFileSync('data/recent_art.json', 'utf8')));
 });
 
+app.get('/following', function (req, res) {
+    res.json(JSON.parse(fs.readFileSync('data/following_art.json', 'utf8')));
+});
+
 app.get('/quizzes', function (req, res) {
     res.json(JSON.parse(fs.readFileSync('data/quizzes_art.json', 'utf8')));
 });
