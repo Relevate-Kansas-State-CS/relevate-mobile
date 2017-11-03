@@ -18,21 +18,21 @@
                   url: '/home',
                   data: {
                       'selectedItem': 'home'
-                  }, 
+                  },
                   template: '<home-view></home-view>'
               }).
               state('feed.trending', {
                   url: '/trending',
                   data: {
                       'selectedItem': 'trending'
-                  }, 
+                  },
                   template: '<trending-view></trending-view>'
               }).
               state('feed.recent', {
                   url: '/recent',
                   data: {
                       'selectedItem': 'recent'
-                  }, 
+                  },
                   template: '<recent-view></recent-view>'
               }).
               state('following', {
@@ -46,7 +46,12 @@
               state('open-quiz', {
                   url: '/open-quiz',
                   template: '<open-quiz-view></open-quiz-view>',
-                  params: { quiz: null }
+                  params: { quiz: null, index: null, count: null, answers: null }
+              }).
+              state('finished-quiz', {
+                  url: '/finished-quiz',
+                  template: '<finished-quiz-view></finished-quiz-view>',
+                  params: { quiz: null, answers: null }
               }).
               state('journals', {
                   url: '/journals',

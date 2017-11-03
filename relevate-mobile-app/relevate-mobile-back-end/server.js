@@ -4,10 +4,6 @@ const app = express();
 var fs = require('fs');
 var port = process.env.PORT || 1337;
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
 app.get('/home', function (req, res) {
     res.json(JSON.parse(fs.readFileSync('data/home_art.json', 'utf8')));
 });
