@@ -99,7 +99,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://10.131.228.108:1337/home').then(function (response) { //change ip to local ip (10.131.228.108)
+        $http.get('http://localhost:1337/home').then(function (response) {
             $scope.articles = response.data;
         });
         $scope.OpenDialog = function (art) {
@@ -131,7 +131,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://10.131.228.108:1337/trending').then(function (response) { //change ip to local ip (10.131.228.108)
+        $http.get('http://localhost:1337/trending').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -154,7 +154,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://10.131.228.108:1337/recent').then(function (response) { //change ip to local ip (10.131.228.108)
+        $http.get('http://localhost:1337/recent').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -198,9 +198,10 @@ angular.module('mainApp').
             $mdSidenav('left').open();
         };
         $scope.OpenQuiz = function (quizObject) {
+            console.log(quizObject.questions);
             $state.go('open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
         }
-        $http.get('http://10.131.228.108:1337/quizzes').then(function (response) { //change ip to local ip (10.131.228.108)
+        $http.get('http://localhost:1337/quizzes').then(function (response) {
             $scope.quizzes = response.data;
         });
     }]).
@@ -252,7 +253,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://10.131.228.108:1337/journals').then(function (response) { //change ip to local ip (10.131.228.108)
+        $http.get('http://localhost:1337/journals').then(function (response) {
             $scope.articles = response.data;
         });
     }]);
