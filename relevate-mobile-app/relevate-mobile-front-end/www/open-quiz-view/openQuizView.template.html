@@ -1,0 +1,125 @@
+﻿<!--
+    This file governs the appearance and function of an opened quiz (sub-view of the main quizzes section).
+
+    NOTES: 
+        - data.group# is important. Each group will needs its own number, otherwise answers for one question will be selected for others with the same numbering.
+            - May be a good idea to use the $index to increment that for each question displayed during an ngRepeat 
+        - md-toolbar adds the Relevate header and swipe-out navigation menu to the template
+-->
+
+<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+    <div class="md-toolbar-tools">
+        <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+            <ng-md-icon icon="menu" class="white"></ng-md-icon>
+        </md-button>
+        <img layout-align="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
+        <h2 layout-align="start center" md-truncate class="white">Quizzes</h2>
+    </div>
+</md-toolbar>
+
+<form ng-controller="OpenQuizController" ng-cloak></form>
+<!--ng-submit="submit()"     was between form and ng-controller --->
+
+<div class="quiz-content-card">
+    
+    <md-card>
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Are You Besties Yet?</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+
+            <img ng-src="images/quizzes/stock-quiz-image.png" class="md-card-image" alt="Quiz Image Placeholder">
+
+            <section class="multiple-choice-question">
+
+                <h4>Do you prefer a slightly bolded font?</h4>
+
+                <md-radio-group ng-model="data.group1">
+
+                    <h4 style="color:forestgreen;"><md-radio-button value="Answer A" class="md-primary">Test A</md-radio-button></h4>
+                    <h4><md-radio-button value="Answer B" class="orange">Test B</md-radio-button></h4>
+                    <h4><md-radio-button value="Answer C" class="purple">Test C</md-radio-button></h4>
+                    <h4><md-radio-button value="Answer D" class="light-blue">Test D</md-radio-button></h4>
+
+                </md-radio-group>
+
+                <p>You Chose: <span class="radioValue">{{data.group1}}</span> </p>
+            </section>
+
+            <section class="multiple-choice-question">
+                
+                <p>Or the simple text?</p>
+
+                <md-radio-group ng-model="data.group2">
+
+                    <md-radio-button value="Answer A" class="md-primary">Test A</md-radio-button>
+                    <md-radio-button value="Answer B" class="orange">Test B</md-radio-button>
+                    <md-radio-button value="Answer C" class="purple">Test C</md-radio-button>
+                    <md-radio-button value="Answer D" class="light-blue">Test D</md-radio-button>
+
+                </md-radio-group>
+                <p>You Chose: <span class="radioValue">{{data.group2}}</span> </p>
+            </section>
+
+            <section class="multiple-choice-question">
+
+                <h3>Or perhaps a bigger and bolder question with regular answer text for some contrast?</h3>
+
+                <md-radio-group ng-model="data.group3">
+
+                    <md-radio-button value="Answer A" class="md-primary">Test A</md-radio-button>
+                    <md-radio-button value="Answer B" class="orange">Test B</md-radio-button>
+                    <md-radio-button value="Answer C" class="purple">Test C</md-radio-button>
+                    <md-radio-button value="Answer D" class="light-blue">Test D</md-radio-button>
+
+                </md-radio-group>
+
+                <p>You Chose: <span class="radioValue">{{data.group3}}</span> </p>
+            </section>
+
+            <section class="true-or-false-question">
+
+                <h4>True or False: You prefer contributor credits and information at the end of a quiz instead of in the quiz browsing view</h4>
+
+                <md-radio-group ng-model="data.group4">
+
+                    <h4><md-radio-button value="True" class="light-blue">True</md-radio-button></h4>
+                    <h4><md-radio-button value="False" class="purple">False</md-radio-button></h4>
+
+                </md-radio-group>
+
+                <p>You Chose: <span class="radioValue">{{data.group4}}</span> </p>
+            </section>
+        </md-card-content>
+
+        <md-button layout-align="center center" class="md-raised md-warn">Submit Quiz</md-button>
+    </md-card>
+</div>
+
+<div class="quiz-contributor-info-card">
+    <md-card>
+        <md-card-content>
+            <p>
+                <h5>Published: 29 Oct 17</h5>
+                <h5>Contributed by:</h5>
+            </p>
+            <div flex layout="column">
+                <!--<img ng-src="{{quiz.contr_pic}}" alt="{{quiz.contr_name}}" class="img-circle" width="100" height="128" />
+                    <p layout-align="center center">{{article.contr_name}}</p>
+                    --->
+                <img ng-src="images/contributors/AmberVennum.jpg" alt="Contributor Name Here" class="img-circle" width="77" height="100" />
+                <h5 style="color:lightcoral"> Amber Vennum</h5>
+                
+            </div>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+            <!-- Could add a way to tap contributor's picture here to view their profile here-->
+        </md-card-actions>
+    </md-card>
+</div>
+
+<!---    ADD SUBMIT ANSWERS BUTTON / TOGGLE ON IF ALL ARE ANSWERED. ALSO ADD CONTRIBUTOR PIC / NAME / TAGS BELOW QUIZ? --->

@@ -12,6 +12,7 @@
  * @requires trendingView
  * @requires recentView
  * @requires quizzesView
+ * @requires openQuizView
  * @requires journalsView
  * @requires feedView
  * @description This is the main module for the application.
@@ -30,6 +31,7 @@ angular.module('mainApp', [
     'trendingView',
     'recentView',
     'quizzesView',
+    'openQuizView',
     'journalsView',
     'feedView'
 ]);

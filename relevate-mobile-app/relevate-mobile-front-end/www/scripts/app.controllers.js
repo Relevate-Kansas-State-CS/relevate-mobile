@@ -99,7 +99,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/home_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/home').then(function (response) {
             $scope.articles = response.data;
         });
         $scope.OpenDialog = function (art) {
@@ -131,7 +131,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/trending_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/trending').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -154,7 +154,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/recent_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/recent').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -162,29 +162,36 @@ angular.module('mainApp').
      * @function QuizzesTabController
      * @requires $scope
      * @requires $http
-     * @requires $cordovaInAppBrowser
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the quizzes view.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+    controller('QuizzesTabController', ['$scope', '$http', '$mdSidenav', '$state', function ($scope, $http, $mdSidenav, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
-        };
-        $http.get('data/quizzes_art.json').then(function (response) {
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('open-quiz', { quiz: quizObject });
+        }
+        $http.get('http://10.131.228.60:1337/quizzes').then(function (response) {
             $scope.quizzes = response.data;
         });
+    }]).
+    /**
+     * @function OpenQuizController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
+     */
+    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', function ($scope, $mdSidenav, $stateParams) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        $scope.quiz = $stateParams.quiz;
     }]).
     /**
      * @function JournalsTabController
@@ -210,7 +217,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/journals_art.json').then(function (response) {
+        $http.get('http://10.131.228.60:1337/journals').then(function (response) {
             $scope.articles = response.data;
         });
     }]);
