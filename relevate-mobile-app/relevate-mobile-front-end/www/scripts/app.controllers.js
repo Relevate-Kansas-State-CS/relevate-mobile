@@ -99,7 +99,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://localhost:1337/home').then(function (response) {
+        $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
         $scope.OpenDialog = function (art) {
@@ -131,7 +131,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://localhost:1337/trending').then(function (response) {
+        $http.get('data/trending_art.json').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -154,7 +154,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://localhost:1337/recent').then(function (response) {
+        $http.get('data/recent_art.json').then(function (response) {
             $scope.articles = response.data;
         });
     }]).
@@ -201,7 +201,7 @@ angular.module('mainApp').
             console.log(quizObject.questions);
             $state.go('open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
         }
-        $http.get('http://localhost:1337/quizzes').then(function (response) {
+        $http.get('data/quizzes_art.json').then(function (response) {
             $scope.quizzes = response.data;
         });
     }]).
@@ -253,7 +253,7 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('http://localhost:1337/journals').then(function (response) {
+        $http.get('data/journals_art.json').then(function (response) {
             $scope.articles = response.data;
         });
     }]);
