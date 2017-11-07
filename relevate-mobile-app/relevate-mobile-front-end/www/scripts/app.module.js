@@ -28,6 +28,7 @@ angular.module('mainApp', [
     'ngStorage',
     'ngMdIcons',
     'ngCordova',
+    'akoenig.deckgrid',
     'homeView',
     'trendingView',
     'recentView',

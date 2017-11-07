@@ -13,17 +13,21 @@
             <p>{{article.desc | limitTo:50}}...</p>
     </md-card>
 </div>
-<md-card ng-repeat="article in articles track by $index" flex="50">
-    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
-    <md-card-content layout-padding>
-        <span class="md-headline"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
-        <div layout="row">
-            <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="rounded-edges" height="60" width="60" />
-            <div layout="column" layout-align="end start">
-                <a ng-click="OpenContri(article.contr_name)" class="gray"><i>{{article.contr_name}}</i></a>
-                <md-divider flex="100"></md-divider>
-            </div>
-        </div>
-        <p>{{article.desc}}</p>
-    </md-card-content>
-</md-card>
+<div layout="column" flex>
+    <deckgrid class="deckgrid" flex source="articles">
+        <md-card>
+            <img ng-src="{{card.art_image}}" class="md-card-image" alt="Article Image">
+            <md-card-content layout-padding>
+                <span class="md-headline"><a ng-click="OpenArticle(card.url)">{{card.title}}</a></span>
+                <div layout="row">
+                    <img ng-src="{{card.contr_pic}}" alt="{{card.contr_name}}" class="img-circle" height="60" width="60" />
+                    <div layout="column" layout-align="end start">
+                        <a ng-click="OpenContri(card.contr_name)" class="gray"><i>{{card.contr_name}}</i></a>
+                        <md-divider></md-divider>
+                    </div>
+                </div>
+                <p>{{card.desc}}</p>
+            </md-card-content>
+        </md-card>
+    </deckgrid>
+</div>
