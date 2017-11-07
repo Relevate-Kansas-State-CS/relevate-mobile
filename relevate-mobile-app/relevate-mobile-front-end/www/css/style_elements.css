@@ -133,3 +133,11 @@ md-sidenav {
 .deckgrid .column-1-2 {
     width: 50%;
 }
+
+.padding-remove {
+    padding-right: 0;
+}
+
+.padding-right {
+    padding-right: 8px;
+}

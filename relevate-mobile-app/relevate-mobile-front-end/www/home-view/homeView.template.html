@@ -1,18 +1,17 @@
-﻿<md-grid-list md-cols="2" md-row-height="4:3" md-gutter="6px">
-        <md-grid-tile ng-repeat="article in articles track by $index" ng-click="OpenDialog(article)">
-            <img ng-src="{{article.art_image}}" alt="Article Image" layout-fill>
-            <md-grid-tile-footer>
-                <h3>{{article.title}}</h3>
-            </md-grid-tile-footer>
-        </md-grid-tile>
-</md-grid-list>
-<div layout="row" layout-wrap>
-    <md-card ng-repeat="article in articles track by $index" ng-class-odd="'left-card'" ng-class-even="'right-card'" ng-click="OpenDialog(article)" >
-        <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" style="min-height: 120px;max-height: 120px;" />
-        <md-card-content layout-padding>
-            <p>{{article.desc | limitTo:50}}...</p>
-    </md-card>
-</div>
+﻿<md-card ng-repeat="article in articles track by $index" flex>
+    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
+    <md-card-content layout-padding class="padding-remove">
+        <span class="md-display-1 padding-right"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
+        <div layout="row" class="padding-remove">
+            <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="60" width="60" />
+            <div layout="column" flex>
+                <a style="padding-top: 25px;padding-left: 5px;" ng-click="OpenContri(article.contr_name)" class="gray"><i>{{article.contr_name}}</i></a>
+                <md-divider></md-divider>
+            </div>
+        </div>
+        <span class="md-body-1 padding-right">{{article.desc}}</span>
+    </md-card-content>
+</md-card>
 <div layout="column" flex>
     <deckgrid class="deckgrid" flex source="articles">
         <md-card>
