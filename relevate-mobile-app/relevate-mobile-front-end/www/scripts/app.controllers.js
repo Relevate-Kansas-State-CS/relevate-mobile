@@ -102,6 +102,19 @@ angular.module('mainApp').
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.randomColor = function () {
+            var color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    return 'red';
+                case 1:
+                    return 'blue';
+                case 2:
+                    return 'purple';
+                case 3:
+                    return 'orange';
+            }
+        }
         $scope.OpenDialog = function (art) {
             $mdDialog.show({
                 controller: 'ArticleDialogController',

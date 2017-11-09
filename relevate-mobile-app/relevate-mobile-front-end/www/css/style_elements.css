@@ -1,4 +1,8 @@
-﻿md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
+﻿body {
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+}
+
+md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
     color: #79beee !important;
     background: #79beee !important;
 }
@@ -14,6 +18,14 @@
 .bg-orange {
     color: #ffffff !important;
     background: #ee7600 !important;
+}
+
+.blue {
+    color: #246FF2 !important;
+}
+
+.red {
+    color: red !important;
 }
 
 .dark-blue {
@@ -71,6 +83,7 @@
 
 md-divider {
     padding: 0 !important;
+    border-width: 1.5px;
 }
 
 md-toolbar md-input-container div.md-errors-spacer {
