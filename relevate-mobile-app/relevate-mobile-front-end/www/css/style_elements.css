@@ -3,16 +3,38 @@
 }
 
 md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
-    color: #79beee !important;
-    background: #79beee !important;
+    color: #246FF2 !important;
+    background: #246FF2 !important;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: #ffffff !important;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ffffff !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff !important;
+    opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: #ffffff !important;
+    opacity: 1;
 }
 
 ._md-nav-button, ._md-nav-button-text {
-    color: #79beee !important;
+    color: #246FF2 !important;
 }
 
 .orange {
     color: #ee7600 !important;
+}
+
+.divider-orange {
+    border-top-color: #ee7600 !important;
 }
 
 .bg-orange {
@@ -20,12 +42,25 @@ md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
     background: #ee7600 !important;
 }
 
-.blue {
+.light-blue {
     color: #246FF2 !important;
+}
+
+.divider-light-blue {
+    border-top-color: #246FF2 !important;
+}
+
+.bg-liblue {
+    color: #ffffff !important;
+    background: #246FF2 !important;
 }
 
 .red {
     color: red !important;
+}
+
+.divider-red {
+    border-top-color: red !important;
 }
 
 .dark-blue {
@@ -41,18 +76,13 @@ md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
     color: #8a84e2 !important;
 }
 
+.divider-purple {
+    border-top-color: #8a84e2 !important;
+}
+
 .bg-purple {
     color: #ffffff !important;
     background: #8a84e2 !important;
-}
-
-.light-blue {
-    color: #79beee !important;
-}
-
-.bg-liblue {
-    color: #ffffff !important;
-    background: #79beee !important;
 }
 
 .gray {

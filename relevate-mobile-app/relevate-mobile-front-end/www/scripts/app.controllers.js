@@ -108,7 +108,7 @@ angular.module('mainApp').
                 case 0:
                     return 'red';
                 case 1:
-                    return 'blue';
+                    return 'light-blue';
                 case 2:
                     return 'purple';
                 case 3:

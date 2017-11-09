@@ -6,7 +6,7 @@
             <img ng-src="{{article.contr_pic}}" alt="{{article.contr_name}}" class="img-circle" height="60" width="60" />
             <div layout="column" flex>
                 <a style="padding-top: 25px;padding-left: 5px;" ng-click="OpenContri(article.contr_name)" class="gray"><i>{{article.contr_name}}</i></a>
-                <md-divider style="border-top-color: {{color}};"></md-divider>
+                <md-divider class="divider-{{color}}"></md-divider>
             </div>
         </div>
         <span class="md-body-1 padding-right">{{article.desc}}</span>
