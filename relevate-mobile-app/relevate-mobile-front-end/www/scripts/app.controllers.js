@@ -231,9 +231,9 @@ angular.module('mainApp').
             $mdSidenav('left').open();
         };
         $scope.nextQuestion = function () {
-            $scope.index++;
+            $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
             if ($scope.index === $scope.quiz.count) {
-                $state.go('quiz-finished', { quiz: $scope.quiz, answers: null }); //unsure about answers object
+                $state.go('quiz-finished', { quiz: $scope.quiz, answers: null }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
             } else {
                 $state.go('open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: null }); //unsure about answers object
             }

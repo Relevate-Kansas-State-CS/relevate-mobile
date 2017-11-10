@@ -46,6 +46,10 @@ md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
     color: #246FF2 !important;
 }
 
+.relevate-blue {
+    color: #246FF2 !important;
+}
+
 .divider-light-blue {
     border-top-color: #246FF2 !important;
 }
@@ -183,4 +187,52 @@ md-sidenav {
 
 .padding-right {
     padding-right: 8px;
+}
+
+.quizAnswerButton {
+    color: ghostwhite;
+    background-color: #246FF2;
+    display: block;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.4rem 0.75rem;
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+    font-size: 12.5px;
+    font: Lato;
+    line-height: 1.5;
+    border-radius: 1.00rem;
+    word-wrap: normal;
+}
+
+.quizNavigationButton {
+    font: 550 20px Arial;
+    min-height: 30px;
+    min-width: 60px;
+    color: ghostwhite;
+    background-color: #246FF2;
+    border: 1px solid #246FF2;
+    padding: 0.0rem 0.0rem;
+}
+
+.quizTitle {
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+    font: 800 32px Lato;
+    color: #246FF2;
+    text-align: center;
+}
+
+.quizIndexText {
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+    font: 600 17.5px Lato;
+    color: deepskyblue;
+    text-align: center;
+}
+
+.quizQuestionText {
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+    font: 600 20px Lato;
+    color: #246FF2;
+    text-align: left;
 }
