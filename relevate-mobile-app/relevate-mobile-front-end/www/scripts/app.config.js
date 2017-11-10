@@ -1,6 +1,6 @@
 ﻿angular.
   module('mainApp').
-    config(['$stateProvider', '$urlRouterProvider',
+    config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider',
       /**
        * @function config
        * @memberof module:mainApp
@@ -8,7 +8,17 @@
        * @param $urlRouterProvider Routing provider of the application.
        * @description The function to configure the routes.
        */
-      function config($stateProvider, $urlRouterProvider) {
+        function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+            var relevateBlue = $mdThemingProvider.extendPalette('indigo', {
+                '500': '#246FF2'
+            });
+
+            // Register the new color palette map with the name <code>neonRed</code>
+            $mdThemingProvider.definePalette('relevateBlue', relevateBlue);
+
+            // Use that theme for the primary intentions
+            $mdThemingProvider.theme('default')
+                .primaryPalette('relevateBlue');
           $stateProvider.
               state('feed', {
                   url: '/feed',

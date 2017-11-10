@@ -17,7 +17,7 @@
     </div>
 </md-toolbar>
 
-<form ng-controller="OpenQuizController" ng-cloak></form>
+<form></form>
 <!--ng-submit="submit()"     was between form and ng-controller --->
 
 <p id="quizData"></p> <!---Could be used to access relevant .JSON data about the quiz elements in quizzes_art.json-->
@@ -33,25 +33,18 @@
 
         <md-card-content>            
 
-            <div class="quizIndexText">Question X of Y</div>
+            <div class="quizIndexText">Question {{index + 1}} out of {{count}}</div>
 
             <br />
             <br />
-
-            <script language="JavaScript">
-                //Could possibly add some code here to access data stored in quizzes_art.json
-            </script>
 
             <section class="multiple-choice-question" layout="column" layout-align="space-around start">
 
-                <div class="quizQuestionText">{{quiz.questions[0]}}</div>
+                <div class="quizQuestionText">{{quiz.questions[index]}}</div>
 
                 <br />
 
-                <md-button class="quizAnswerButton">{{quiz.answer_choices[0]}}</md-button>
-                <md-button class="quizAnswerButton">{{quiz.answer_choices[questionIndex + 1]}}</md-button>
-                <md-button class="quizAnswerButton">{{quiz.answer_choices[questionIndex + 2]}}</md-button>
-                <md-button class="quizAnswerButton">{{quiz.answer_choices[questionIndex + 3]}}</md-button>
+                    <md-button class="quizAnswerButton" ng-repeat="answer in quiz.answer_choices[index] track by $index">{{answer}}</md-button>
 
                 <!--Note: could possibly use ng-click to define behavior, such as change appearance when selected or enable navigation forward-->
 
@@ -62,8 +55,8 @@
 
             <section layout="row" layout-align="space-between end">
 
-                <md-button class="quizNavigationButton"><<</md-button>
-                <md-button class="quizNavigationButton">>></md-button>
+                <md-button ng-disabled="index == 0" class="quizNavigationButton md-primary" ng-click="previousQuestion()"><<</md-button>
+                <md-button class="quizNavigationButton md-primary" ng-click="nextQuestion()">>></md-button>
 
             </section>
 

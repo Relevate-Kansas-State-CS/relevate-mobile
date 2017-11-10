@@ -230,6 +230,10 @@ angular.module('mainApp').
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
+        $scope.previousQuestion = function () {
+            $scope.index--;
+            $state.go('open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: null }); //unsure about answers object
+        }
         $scope.nextQuestion = function () {
             $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
             if ($scope.index === $scope.quiz.count) {
@@ -238,9 +242,9 @@ angular.module('mainApp').
                 $state.go('open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: null }); //unsure about answers object
             }
         };
-        $scope.count = $stateParams.count;
-        $scope.index = $stateParams.index;
-        $scope.quiz = $stateParams.quiz;
+        $scope.count = $stateParams.count; //parameter from previous question or QuizzesTab
+        $scope.index = $stateParams.index; // ""                    ""
+        $scope.quiz = $stateParams.quiz; //     ""              ""
     }]).
     /**
      * @function JournalsTabController

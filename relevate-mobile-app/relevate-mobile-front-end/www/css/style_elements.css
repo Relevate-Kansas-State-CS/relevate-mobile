@@ -198,7 +198,6 @@ md-sidenav {
     vertical-align: middle;
     user-select: none;
     padding: 0.4rem 0.75rem;
-    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
     font-size: 12.5px;
     font: Lato;
     line-height: 1.5;
@@ -210,29 +209,34 @@ md-sidenav {
     font: 550 20px Arial;
     min-height: 30px;
     min-width: 60px;
-    color: ghostwhite;
+    color: ghostwhite !important;
     background-color: #246FF2;
     border: 1px solid #246FF2;
     padding: 0.0rem 0.0rem;
 }
 
 .quizTitle {
-    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
     font: 800 32px Lato;
     color: #246FF2;
     text-align: center;
 }
 
 .quizIndexText {
-    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
     font: 600 17.5px Lato;
     color: deepskyblue;
     text-align: center;
 }
 
 .quizQuestionText {
-    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
     font: 600 20px Lato;
     color: #246FF2;
     text-align: left;
+}
+
+.md-button:focus {
+    outline: inherit !important;
+}
+
+.md-button:hover, .md-button:focus {
+    text-decoration: solid !important;
 }
