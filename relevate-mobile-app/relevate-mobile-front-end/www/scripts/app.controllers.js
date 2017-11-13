@@ -245,12 +245,16 @@ angular.module('mainApp').
             if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
             $stateParams.answers[$scope.index] = $scope.choice;
             $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
-            if ($scope.index === $scope.quiz.count) {
-                $state.go('quiz.quiz-finished', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
+            if ($scope.index === $scope.count) {
+                $state.go('quiz.finished-quiz', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
             } else {
                 $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
             }
         };
+    }]).
+    controller('FinishedQuizController', ['$scope', '$mdSidenav', '$stateParams', '$http', function ($scope, $mdSidenav, $stateParams, $http) {
+        console.log($stateParams.answers);
+        //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
      * @function JournalsTabController

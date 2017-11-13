@@ -42,8 +42,12 @@
                         <p>Quizzes</p>
                     </md-list-item>
                     <md-list-item ui-sref="journals" ng-click="closeSideNav()">
-                        <ng-md-icon icon="book" class="orange"></ng-md-icon>
+                        <ng-md-icon icon="book" class="red"></ng-md-icon>
                         <p>Journals</p>
+                    </md-list-item>
+                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                        <ng-md-icon icon="history" class="orange"></ng-md-icon>
+                        <p>History</p>
                     </md-list-item>
                     <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
                         <ng-md-icon icon="settings" class="gray"></ng-md-icon>
@@ -89,3 +93,5 @@
 <script type="text/javascript" src="journals-view/journalsView.component.js"></script>
 <script type="text/javascript" src="quiz-view/quizView.module.js"></script>
 <script type="text/javascript" src="quiz-view/quizView.component.js"></script>
+<script type="text/javascript" src="finished-quiz-view/finishedQuizView.module.js"></script>
+<script type="text/javascript" src="finished-quiz-view/finishedQuizView.component.js"></script>
