@@ -205,10 +205,10 @@ angular.module('mainApp').
      * @function QuizzesTabController
      * @requires $scope
      * @requires $http
-     * @requires $mdSidenav
+     * @requires $state
      * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for articles.
-     * @param $mdSidenav This opens up the side navigation bar.
+     * @param $http Used to retrieve data for quizzes.
+     * @param $state Used to route the app to the open quiz view when the "view quiz"button is tapped.
      * @description This is the controller for the quizzes view.
      */
     controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
@@ -223,8 +223,12 @@ angular.module('mainApp').
      * @function OpenQuizController
      * @requires $scope
      * @requires $mdSidenav
+     * @requires $stateParams
+     * @requires $state
      * @param $scope The scope of the controller.
      * @param $mdSidenav This opens up the side navigation bar.
+     * @param $stateParams Used to help track relevant quiz data such as question responses and indices
+     * @param $state Used to route the app to the appropriate view when a question navigation button is pressed.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
     controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', '$state', function ($scope, $mdSidenav, $stateParams, $state) {
@@ -252,6 +256,18 @@ angular.module('mainApp').
             }
         };
     }]).
+    /**
+     * @function FinishedQuizController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $stateParams
+     * @requires $http
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @param $stateParams Used to store users' quiz responses.
+     * @param $http Used to exchange quiz response data with the backend server.
+     * @description This is the controller for the view which is displayed at the end of a quiz.
+     */
     controller('FinishedQuizController', ['$scope', '$mdSidenav', '$stateParams', '$http', function ($scope, $mdSidenav, $stateParams, $http) {
         console.log($stateParams.answers);
         //$http.post(url, JSON.stringify($stateParams.answers));
