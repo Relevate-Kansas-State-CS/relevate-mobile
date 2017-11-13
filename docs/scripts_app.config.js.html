@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>scripts/app.config.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-controllers.html">controllers</a><ul class='methods'><li data-type='method'><a href="module-controllers.html#~ArticleDialogController">ArticleDialogController</a></li><li data-type='method'><a href="module-controllers.html#~FeedController">FeedController</a></li><li data-type='method'><a href="module-controllers.html#~FinishedQuizController">FinishedQuizController</a></li><li data-type='method'><a href="module-controllers.html#~FollowingTabController">FollowingTabController</a></li><li data-type='method'><a href="module-controllers.html#~HomeTabController">HomeTabController</a></li><li data-type='method'><a href="module-controllers.html#~JournalsTabController">JournalsTabController</a></li><li data-type='method'><a href="module-controllers.html#~NavigationController">NavigationController</a></li><li data-type='method'><a href="module-controllers.html#~OpenQuizController">OpenQuizController</a></li><li data-type='method'><a href="module-controllers.html#~QuizzesTabController">QuizzesTabController</a></li><li data-type='method'><a href="module-controllers.html#~RecentTabController">RecentTabController</a></li><li data-type='method'><a href="module-controllers.html#~SideNavController">SideNavController</a></li><li data-type='method'><a href="module-controllers.html#~TrendingTabController">TrendingTabController</a></li></ul></li><li><a href="module-feedView.html">feedView</a><ul class='methods'><li data-type='method'><a href="module-feedView.html#.component">component</a></li><li data-type='method'><a href="module-feedView.html#.component">component</a></li></ul></li><li><a href="module-followingView.html">followingView</a><ul class='methods'><li data-type='method'><a href="module-followingView.html#.component">component</a></li></ul></li><li><a href="module-homeView.html">homeView</a><ul class='methods'><li data-type='method'><a href="module-homeView.html#.component">component</a></li></ul></li><li><a href="module-journalsView.html">journalsView</a><ul class='methods'><li data-type='method'><a href="module-journalsView.html#.component">component</a></li></ul></li><li><a href="module-mainApp.html">mainApp</a><ul class='methods'><li data-type='method'><a href="module-mainApp.html#.config">config</a></li></ul></li><li><a href="module-openQuizView.html">openQuizView</a><ul class='methods'><li data-type='method'><a href="module-openQuizView.html#.component">component</a></li></ul></li><li><a href="module-quizzesView.html">quizzesView</a><ul class='methods'><li data-type='method'><a href="module-quizzesView.html#.component">component</a></li><li data-type='method'><a href="module-quizzesView.html#.component">component</a></li></ul></li><li><a href="module-recentView.html">recentView</a><ul class='methods'><li data-type='method'><a href="module-recentView.html#.component">component</a></li></ul></li><li><a href="module-trendingView.html">trendingView</a><ul class='methods'><li data-type='method'><a href="module-trendingView.html#.component">component</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">scripts/app.config.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿angular.
+  module('mainApp').
+    config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider',
+      /**
+       * @function config
+       * @memberof module:mainApp
+       * @param $stateProvider State of the application.
+       * @param $urlRouterProvider Routing provider of the application.
+       * @description The function to configure the routes.
+       */
+        function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+            var relevateBlue = $mdThemingProvider.extendPalette('indigo', {
+                '500': '#246FF2'
+            });
+
+            // Register the new color palette map with the name &lt;code>neonRed&lt;/code>
+            $mdThemingProvider.definePalette('relevateBlue', relevateBlue);
+
+            // Use that theme for the primary intentions
+            $mdThemingProvider.theme('default')
+                .primaryPalette('relevateBlue');
+          $stateProvider.
+              state('feed', {
+                  url: '/feed',
+                  template: '&lt;feed-view>&lt;/feed-view>&lt;div ui-view>&lt;/div>'
+              }).
+              state('feed.home', {
+                  url: '/home',
+                  data: {
+                      'selectedItem': 'home'
+                  },
+                  template: '&lt;home-view>&lt;/home-view>'
+              }).
+              state('feed.trending', {
+                  url: '/trending',
+                  data: {
+                      'selectedItem': 'trending'
+                  },
+                  template: '&lt;trending-view>&lt;/trending-view>'
+              }).
+              state('feed.recent', {
+                  url: '/recent',
+                  data: {
+                      'selectedItem': 'recent'
+                  },
+                  template: '&lt;recent-view>&lt;/recent-view>'
+              }).
+              state('following', {
+                  url: '/following',
+                  template: '&lt;following-view>&lt;/following-view>&lt;div ui-view>&lt;/div>'
+              }).
+              state('quiz', {
+                  url: '/quiz',
+                  template: '&lt;quiz-view>&lt;/quiz-view>&lt;div ui-view>&lt;/div>'
+              }).
+              state('quiz.quizzes', {
+                  url: '/quizzes',
+                  template: '&lt;quizzes-view>&lt;/quizzes-view>'
+              }).
+              state('quiz.open-quiz', {
+                  url: '/open-quiz',
+                  template: '&lt;open-quiz-view>&lt;/open-quiz-view>',
+                  params: { quiz: null, index: null, count: null, answers: null }
+              }).
+              state('quiz.finished-quiz', {
+                  url: '/finished-quiz',
+                  template: '&lt;finished-quiz-view>&lt;/finished-quiz-view>',
+                  params: { quiz: null, answers: null }
+              }).
+              state('journals', {
+                  url: '/journals',
+                  template: '&lt;journals-view>&lt;/journals-view>&lt;div ui-view>&lt;/div>'
+              });
+          $urlRouterProvider.otherwise('/feed/home');
+      }
+  ]);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 13 2017 14:45:43 GMT-0600 (Central Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
