@@ -36,5 +36,6 @@ angular.module('mainApp', [
     'quizzesView',
     'openQuizView',
     'journalsView',
-    'feedView'
+    'feedView',
+    'quizView'
 ]);

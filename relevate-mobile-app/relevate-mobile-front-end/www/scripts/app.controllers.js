@@ -196,6 +196,11 @@ angular.module('mainApp').
             $scope.following = response.data;
         });
     }]).
+    controller('QuizTabController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+    }]).
     /**
      * @function QuizzesTabController
      * @requires $scope
@@ -206,13 +211,9 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the quizzes view.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$mdSidenav', '$state', function ($scope, $http, $mdSidenav, $state) {
-        $scope.openSideNav = function () {
-            $mdSidenav('left').open();
-        };
+    controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
         $scope.OpenQuiz = function (quizObject) {
-            console.log(quizObject.questions);
-            $state.go('open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+            $state.go('quiz.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
         }
         $http.get('data/quizzes_art.json').then(function (response) {
             $scope.quizzes = response.data;
@@ -226,25 +227,30 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', function ($scope, $mdSidenav, $stateParams) {
+    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', '$state', function ($scope, $mdSidenav, $stateParams, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
-        $scope.previousQuestion = function () {
-            $scope.index--;
-            $state.go('open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: null }); //unsure about answers object
         }
-        $scope.nextQuestion = function () {
-            $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
-            if ($scope.index === $scope.quiz.count) {
-                $state.go('quiz-finished', { quiz: $scope.quiz, answers: null }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
-            } else {
-                $state.go('open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: null }); //unsure about answers object
-            }
-        };
         $scope.count = $stateParams.count; //parameter from previous question or QuizzesTab
         $scope.index = $stateParams.index; // ""                    ""
         $scope.quiz = $stateParams.quiz; //     ""              ""
+        $scope.choice = ($stateParams.answers != null && $stateParams.answers[$scope.index] != null) ? $stateParams.answers[$scope.index] : null;
+        $scope.previousQuestion = function () {
+            if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
+            $stateParams.answers[$scope.index] = $scope.choice;
+            $scope.index--;
+            $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+        }
+        $scope.nextQuestion = function () {
+            if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
+            $stateParams.answers[$scope.index] = $scope.choice;
+            $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
+            if ($scope.index === $scope.quiz.count) {
+                $state.go('quiz.quiz-finished', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
+            } else {
+                $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+            }
+        };
     }]).
     /**
      * @function JournalsTabController

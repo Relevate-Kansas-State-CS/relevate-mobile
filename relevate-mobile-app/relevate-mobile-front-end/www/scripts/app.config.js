@@ -49,16 +49,20 @@
                   url: '/following',
                   template: '<following-view></following-view><div ui-view></div>'
               }).
-              state('quizzes', {
-                  url: '/quizzes',
-                  template: '<quizzes-view></quizzes-view><div ui-view></div>'
+              state('quiz', {
+                  url: '/quiz',
+                  template: '<quiz-view></quiz-view><div ui-view></div>'
               }).
-              state('open-quiz', {
+              state('quiz.quizzes', {
+                  url: '/quizzes',
+                  template: '<quizzes-view></quizzes-view>'
+              }).
+              state('quiz.open-quiz', {
                   url: '/open-quiz',
                   template: '<open-quiz-view></open-quiz-view>',
                   params: { quiz: null, index: null, count: null, answers: null }
               }).
-              state('finished-quiz', {
+              state('quiz.finished-quiz', {
                   url: '/finished-quiz',
                   template: '<finished-quiz-view></finished-quiz-view>',
                   params: { quiz: null, answers: null }
