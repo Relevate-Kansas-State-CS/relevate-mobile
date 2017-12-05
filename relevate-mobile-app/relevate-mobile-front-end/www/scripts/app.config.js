@@ -6,6 +6,7 @@
        * @memberof module:mainApp
        * @param $stateProvider State of the application.
        * @param $urlRouterProvider Routing provider of the application.
+       * @param $mdThemingProvider Theming provider of the application.
        * @description The function to configure the routes.
        */
         function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
