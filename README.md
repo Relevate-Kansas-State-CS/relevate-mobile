@@ -1,4 +1,4 @@
-﻿
+
 # Relevate Mobile Front End
 
 This project is the front end development of the Relevate Mobile App.

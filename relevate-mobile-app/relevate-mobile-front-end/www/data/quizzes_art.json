@@ -9,6 +9,10 @@
     "update_date": "October 9, 2017",
     "quiz_tags": [ "Mock Tag", "Placeholder Tag" ],
     "questions": [ "Placeholder Question 1?", "Placeholder Question 2?", "Placeholder Question 3?" ],
-    "answer_choices": [ "Answer Text 1", "Answer Text 2", "Answer Text 3", "Answer Text 4", "Answer Text 5", "Answer Text 6", "Answer Text 7", "Answer Text 8", "Answer Text 9", "Answer Text 10", "Answer Text 11", "Answer Text 12" ]
+    "answer_choices": [
+      [ "Answer Text 1", "Answer Text 2", "Answer Text 3", "Answer Text 4" ],
+      [ "Answer Text 5", "Answer Text 6", "Answer Text 7", "Answer Text 8" ],
+      [ "Answer Text 9", "Answer Text 10", "Answer Text 11", "Answer Text 12" ]
+    ]
   }
 ]

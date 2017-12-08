@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\ac4dc\Source\Repos\relevate-mobile\relevate-mobile-app\relevate-mobile-back-end\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="C:\Users\ac4dc\Source\Repos\relevate-mobile\relevate-mobile-app\relevate-mobile-back-end\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\ac4dc\Source\Repos\relevate-mobile\relevate-mobile-app\relevate-mobile-back-end\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

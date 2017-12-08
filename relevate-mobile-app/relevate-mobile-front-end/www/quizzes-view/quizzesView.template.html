@@ -2,18 +2,8 @@
     This file governs the appearance and function of the Quizzes section.  
 -->
 
-<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
-    <div class="md-toolbar-tools">
-        <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
-            <ng-md-icon icon="menu" class="white"></ng-md-icon>
-        </md-button>
-        <img layout-align="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48"/>
-        <h2 layout-align="start center" md-truncate class="white">Quizzes</h2>
-    </div>
-</md-toolbar>
-
 <div class="quiz-card">
-    <md-card>
+    <md-card ng-repeat="quiz in quizzes track by $index">
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Are You Besties Yet?</span>

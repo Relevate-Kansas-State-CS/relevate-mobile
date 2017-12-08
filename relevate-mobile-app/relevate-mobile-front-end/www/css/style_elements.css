@@ -1,19 +1,70 @@
-﻿md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
-    color: #79beee !important;
-    background: #79beee !important;
+﻿body {
+    font-family: Lato, Roboto, Helvetica Neue, sans-serif;
+}
+
+md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
+    color: #246FF2 !important;
+    background: #246FF2 !important;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color: #ffffff !important;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ffffff !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff !important;
+    opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: #ffffff !important;
+    opacity: 1;
 }
 
 ._md-nav-button, ._md-nav-button-text {
-    color: #79beee !important;
+    color: #246FF2 !important;
 }
 
 .orange {
     color: #ee7600 !important;
 }
 
+.divider-orange {
+    border-top-color: #ee7600 !important;
+}
+
 .bg-orange {
     color: #ffffff !important;
     background: #ee7600 !important;
+}
+
+.light-blue {
+    color: #246FF2 !important;
+}
+
+.relevate-blue {
+    color: #246FF2 !important;
+}
+
+.divider-light-blue {
+    border-top-color: #246FF2 !important;
+}
+
+.bg-liblue {
+    color: #ffffff !important;
+    background: #246FF2 !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.divider-red {
+    border-top-color: red !important;
 }
 
 .dark-blue {
@@ -29,18 +80,13 @@
     color: #8a84e2 !important;
 }
 
+.divider-purple {
+    border-top-color: #8a84e2 !important;
+}
+
 .bg-purple {
     color: #ffffff !important;
     background: #8a84e2 !important;
-}
-
-.light-blue {
-    color: #79beee !important;
-}
-
-.bg-liblue {
-    color: #ffffff !important;
-    background: #79beee !important;
 }
 
 .gray {
@@ -71,6 +117,7 @@
 
 md-divider {
     padding: 0 !important;
+    border-width: 1.5px;
 }
 
 md-toolbar md-input-container div.md-errors-spacer {
@@ -80,10 +127,6 @@ md-toolbar md-input-container div.md-errors-spacer {
 
 md-input-container .md-input {
     border-color: #ffffff !important;
-}
-
-a {
-    text-decoration: underline;
 }
 
 md-chips.md-default-theme .md-chips, md-chips .md-chips {
@@ -108,4 +151,127 @@ md-sidenav {
 .column-card {
     box-shadow: none;
     background-color: transparent;
+}
+
+.card-left {
+    margin-left: 0;
+}
+
+.card-right {
+    margin-right: 0;
+}
+
+.rounded-edges {
+    border: 1px solid transparent;
+    border-radius: 1rem;
+}
+
+.deckgrid::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '2 .column.column-1-2';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid .column-1-2 {
+    width: 50%;
+}
+
+.padding-remove {
+    padding-right: 0;
+}
+
+.padding-right {
+    padding-right: 8px;
+}
+
+.quizAnswerButton {
+    color: ghostwhite;
+    background-color: #246FF2;
+    display: block;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.4rem 0.75rem;
+    font-size: 12.5px;
+    font: Lato;
+    line-height: 1.5;
+    border-radius: 1.00rem;
+    word-wrap: normal;
+}
+
+.quizNavigationButton {
+    font: 550 20px Arial;
+    min-height: 30px;
+    min-width: 60px;
+    color: ghostwhite !important;
+    background-color: #246FF2;
+    border: 1px solid #246FF2;
+    padding: 0.0rem 0.0rem;
+}
+
+.quizTitle {
+    font: 800 32px Lato;
+    color: #246FF2;
+    text-align: center;
+}
+
+.quizIndexText {
+    font: 600 17.5px Lato;
+    color: deepskyblue;
+    text-align: center;
+}
+
+.quizQuestionText {
+    font: 600 20px Lato;
+    color: #246FF2;
+    text-align: left;
+}
+
+.md-button:focus {
+    outline: inherit !important;
+}
+
+.md-button:hover, .md-button:focus {
+    text-decoration: solid !important;
+}
+
+md-radio-button .md-off, md-radio-button .md-on {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-radius: 0;
+    border-style: none;
+    border-width: 0;
+}
+
+md-radio-button .md-container {
+    position: absolute;
+    top: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    left: 0;
+    right: auto;
+}
+
+md-radio-button .md-label {
+    margin-left: 10px;
+}
+
+.md-checked {
+    background-color: #246FF2;
+    color: #ffffff;
 }

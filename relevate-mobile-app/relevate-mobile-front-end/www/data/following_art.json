@@ -1,10 +1,10 @@
 [
   {
-    "name": "Ted Smith",
-    "accolades": "PhD in Social Engineering"
+    "contr_name": "Amber Vennum",
+    "contr_pic": "images/contributors/AmberVennum.jpg"
   },
   {
-    "name": "Amber Vennum",
-    "accolades": "Doctorate in Relationships"
+    "contr_name": "Natalie Pennington",
+    "contr_pic": "images/contributors/NataliePennington.jpg"
   }
 ]

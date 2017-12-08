@@ -4,6 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>relevate-mobile-back-end</Name>
     <RootNamespace>relevate-mobile-back-end</RootNamespace>
+    <NameOfLastUsedPublishProfile>PROD</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -31,6 +32,9 @@
     <Compile Include="server.js" />
     <Content Include="data\home_art.json" />
     <Content Include="package.json" />
+    <Content Include="web.config">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>

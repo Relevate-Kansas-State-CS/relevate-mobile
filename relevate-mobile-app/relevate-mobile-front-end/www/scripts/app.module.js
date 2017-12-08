@@ -27,11 +27,14 @@ angular.module('mainApp', [
     'ngStorage',
     'ngMdIcons',
     'ngCordova',
+    'akoenig.deckgrid',
     'homeView',
     'trendingView',
     'recentView',
     'quizzesView',
     'openQuizView',
     'journalsView',
-    'feedView'
+    'feedView',
+    'quizView',
+    'finishedQuizView'
 ]);
