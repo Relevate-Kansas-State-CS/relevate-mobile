@@ -32,9 +32,6 @@
     <Compile Include="server.js" />
     <Content Include="data\home_art.json" />
     <Content Include="package.json" />
-    <Content Include="web.config">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
