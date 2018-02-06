@@ -1,47 +1,51 @@
 ﻿<!--
     This file governs the appearance and function of the Quizzes section.  
 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Quiz Browser</title>
+    </head>
+    <div class="quiz-card">
+        <md-card ng-repeat="quiz in quizzes track by $index">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Are You Besties Yet?</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <img ng-src="images/quizzes/stock-quiz-image.png" class="md-card-image" alt="Quiz Image Placeholder">
+                <p>
+                    See if YOU match these 12 marks of a flourishing friendship!
+                </p>
+            </md-card-content>
+            <md-card-actions layout="column" layout-align="start">
+                <md-button class="bg-purple" ng-click="OpenQuiz(quiz)">View Quiz</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 
-<div class="quiz-card">
-    <md-card ng-repeat="quiz in quizzes track by $index">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Are You Besties Yet?</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-            <img ng-src="images/quizzes/stock-quiz-image.png" class="md-card-image" alt="Quiz Image Placeholder">
-            <p>
-                See if YOU match these 12 marks of a flourishing friendship!
-            </p>
-        </md-card-content>
-        <md-card-actions layout="column" layout-align="start">
-            <md-button class="bg-purple" ng-click="OpenQuiz(quiz)">View Quiz</md-button>
-        </md-card-actions>
-    </md-card>
-</div>
+    <!-- It might be a good idea to have some kind of visual divider between quiz cards -->
 
-<!-- It might be a good idea to have some kind of visual divider between quiz cards -->
-
-<div class="quiz-card">
-    <md-card ng-repeat="quiz in quizzes track by $index">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{quiz.quiz_title}}</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-            <img ng-src="images/quizzes/stock-quiz-image2.png" class="md-card-image" alt="Quiz Image Placeholder">
-            <p>
-                Meeting new people isn't always easy. Can you avoid these common social faux pas?
-            </p>
-        </md-card-content>
-        <md-card-actions layout="column" layout-align="start">
-            <md-button class="bg-dkblue" ng-click="OpenQuiz(quiz)">View Quiz</md-button>
-        </md-card-actions>
-    </md-card>
-</div>
-
+    <div class="quiz-card">
+        <md-card ng-repeat="quiz in quizzes track by $index">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{quiz.quiz_title}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <img ng-src="images/quizzes/stock-quiz-image2.png" class="md-card-image" alt="Quiz Image Placeholder">
+                <p>
+                    Meeting new people isn't always easy. Can you avoid these common social faux pas?
+                </p>
+            </md-card-content>
+            <md-card-actions layout="column" layout-align="start">
+                <md-button class="bg-dkblue" ng-click="OpenQuiz(quiz)">View Quiz</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</html>
     <!--
     Copyright 2016 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
