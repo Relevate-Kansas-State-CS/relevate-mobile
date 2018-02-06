@@ -1,43 +1,49 @@
-﻿<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
-    <div class="md-toolbar-tools">
-        <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
-            <ng-md-icon icon="menu" class="white"></ng-md-icon>
-        </md-button>
-        <img layout-align="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
-        <h2 layout-align="start center" md-truncate class="white">Following</h2>
-    </div>
-</md-toolbar>
-
-<!--
-<div class="following-card">
-    <md-card ng-repeat="follow in following track by $index" ng-init="color = randomColor()" flex>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{follow.name}}</span>
-                <span class="md-subhead">{{follow.accolades}}</span>
-            </md-card-title-text>
-            <md-card-title-media>
-                <div class="md-media-sm card-media"></div>
-            </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button>Unfollow</md-button>
-        </md-card-actions>
-    </md-card>
-</div>
-    -->
-
-<md-card ng-repeat="follow in following track by $index" flex>
-    <md-card-content>
-        <div layout="row" class="padding-remove">
-            <img ng-src="{{follow.contr_pic}}" alt="{{follow.contr_name}}" class="img-circle" height="60" width="60" />
-            <div layout="column" flex>
-                <a style="padding-top: 25px;padding-left: 5px;font-size:20px;font-weight:bold" class="dark-blue"><i>{{follow.contr_name}}</i></a>
-                <md-divider class="dark-blue"></md-divider>
-            </div>
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Following View</title>
+    </head>
+    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+        <div class="md-toolbar-tools">
+            <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+                <ng-md-icon icon="menu" class="white"></ng-md-icon>
+            </md-button>
+            <img layout-align="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
+            <h2 layout-align="start center" md-truncate class="white">Following</h2>
         </div>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-raised dark-blue">Unfollow</md-button>
-        </md-card-actions>
-    </md-card-content>
-</md-card>
+    </md-toolbar>
+
+    <!--
+    <div class="following-card">
+        <md-card ng-repeat="follow in following track by $index" ng-init="color = randomColor()" flex>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{follow.name}}</span>
+                    <span class="md-subhead">{{follow.accolades}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Unfollow</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+        -->
+
+    <md-card ng-repeat="follow in following track by $index" flex>
+        <md-card-content>
+            <div layout="row" class="padding-remove">
+                <img ng-src="{{follow.contr_pic}}" alt="{{follow.contr_name}}" class="img-circle" height="60" width="60" />
+                <div layout="column" flex>
+                    <a style="padding-top: 25px;padding-left: 5px;font-size:20px;font-weight:bold" class="dark-blue"><i>{{follow.contr_name}}</i></a>
+                    <md-divider class="dark-blue"></md-divider>
+                </div>
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised dark-blue">Unfollow</md-button>
+            </md-card-actions>
+        </md-card-content>
+    </md-card>
+</html>

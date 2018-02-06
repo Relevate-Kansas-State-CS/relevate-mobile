@@ -2,40 +2,45 @@
     This file governs the appearance and function of the Journals section.
 -->
 
-<md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
-    <div class="md-toolbar-tools">
-        <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
-            <ng-md-icon icon="menu" class="white"></ng-md-icon>
-        </md-button>
-        <img layout="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48"/>
-        <h2 layout="start center" md-truncate class="white">Journals</h2>
-    </div>
-</md-toolbar>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Journals View</title>
+    </head>
+    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+        <div class="md-toolbar-tools">
+            <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+                <ng-md-icon icon="menu" class="white"></ng-md-icon>
+            </md-button>
+            <img layout="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
+            <h2 layout="start center" md-truncate class="white">Journals</h2>
+        </div>
+    </md-toolbar>
 
-<!--- Note: The outer <div layout> and <div flex> sections are meant to pad the borders a bit for cleaner presentation-->
-<div layout="row" layout-padding>
-    <div flex>
-        <div flex-xs flex-gt-xs="50" layout="column">
-        <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Welcome</span>
-                    <span class="md-subhead">What's on your mind?</span>
-                </md-card-title-text>                
-            </md-card-title>
-            <md-card-content>
-                <div class="md-media-sm card-media"></div>
-                <img ng-src="images/journals/journal-stock-image-smaller.png" class="md-card-image" alt="Journal Image Placeholder" layout="column" layout-align="center center">
-                <md-input-container class="md-block" layout="column" layout-align="center center">
-                    <label>Journal Space</label>
-                    <textarea ng-model="user.journal" md-maxlength="1000" rows="2" md-select-on-focus></textarea>
-                </md-input-container>
-                <md-card-actions layout="column" layout-align="center stretch">
-                    <md-button class="bg-dkblue">Save Journal</md-button>
-                </md-card-actions>
-            </md-card-content>            
-        </md-card>
+    <!--- Note: The outer <div layout> and <div flex> sections are meant to pad the borders a bit for cleaner presentation-->
+    <div layout="row" layout-padding>
+        <div flex>
+            <div flex-xs flex-gt-xs="50" layout="column">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Welcome</span>
+                            <span class="md-subhead">What's on your mind?</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div class="md-media-sm card-media"></div>
+                        <img ng-src="images/journals/journal-stock-image-smaller.png" class="md-card-image" alt="Journal Image Placeholder" layout="column" layout-align="center center">
+                        <md-input-container class="md-block" layout="column" layout-align="center center">
+                            <label>Journal Space</label>
+                            <textarea ng-model="user.journal" md-maxlength="1000" rows="2" md-select-on-focus></textarea>
+                        </md-input-container>
+                        <md-card-actions layout="column" layout-align="center stretch">
+                            <md-button class="bg-dkblue">Save Journal</md-button>
+                        </md-card-actions>
+                    </md-card-content>
+                </md-card>
+            </div>
         </div>
     </div>
-</div>
-
+</html>
