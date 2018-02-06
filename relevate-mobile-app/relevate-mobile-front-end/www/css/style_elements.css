@@ -216,7 +216,9 @@ md-sidenav {
 }
 
 .quizTitle {
-    font: 800 32px Lato;
+    font-family: Lato, Arial, serif;
+    font-size: 0.75em;
+    font-weight: 600;
     color: #246FF2;
     text-align: center;
 }
@@ -231,6 +233,14 @@ md-sidenav {
     font: 600 20px Lato;
     color: #246FF2;
     text-align: left;
+}
+
+.finishedQuizHeader {
+    font-family: Lato, Arial, serif;
+    font-size: 1.6em;
+    font-weight: 500;
+    color: #246FF2;
+    text-align: center;
 }
 
 .md-button:focus {

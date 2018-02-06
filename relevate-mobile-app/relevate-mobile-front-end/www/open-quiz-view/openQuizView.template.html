@@ -1,29 +1,43 @@
-﻿<!DOCTYPE html>
+﻿<!--
+       This file governs the appearance and function of an opened quiz (sub-view of the main quizzes section).
+
+       NOTES:
+           - May be a good idea to use the $index to increment that for each question displayed during an ngRepeat
+           - md-toolbar adds the Relevate header and swipe-out navigation menu to the template
+-->
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Active Quiz</title>
     </head>
-    <div layout="column">
-        <span class="md-headline" layout-padding>{{quiz.questions[index]}}</span>
-        <md-radio-group class="md-primary" layout-padding ng-model="choice">
-            <md-radio-button ng-repeat="answer in quiz.answer_choices[index] track by $index" flex layout="row" layout-align="start center" ng-value="answer" style="border: 1.5px solid #246FF2;" class="rounded-edges">{{answer}}</md-radio-button>
-        </md-radio-group>
-        <div layout="row" layout-align="space-between center">
-            <md-button ng-disabled="index == 0" class="md-raised md-primary" style="border-radius: 0.2rem;" ng-click="previousQuestion()"><<</md-button>
-            <span class="md-subhead">Question {{index + 1}} out of {{count}}</span>
-            <md-button ng-disabled="choice == null" class="md-raised md-primary" style="border-radius: 0.2rem;" ng-click="nextQuestion()">>></md-button>
+    <body>
+        <div class="openQuizWrapper"> <!--Use this for unified CSS styling in the future-->
+            <header class="quizTitle">
+                <h1>{{quiz.quiz_title}}</h1>
+            </header>
+            <main>
+                <div layout="column">
+                    <span class="md-headline" layout-padding>{{quiz.questions[index]}}</span>
+                    <md-radio-group class="md-primary" layout-padding ng-model="choice">
+                        <md-radio-button ng-repeat="answer in quiz.answer_choices[index] track by $index" flex layout="row" layout-align="start center" ng-value="answer" style="border: 1.5px solid #246FF2;" class="rounded-edges">{{answer}}</md-radio-button>
+                    </md-radio-group>
+                    <div layout="row" layout-align="space-between center">
+                        <md-button ng-disabled="index == 0" class="md-raised md-primary" style="border-radius: 0.2em;" ng-click="previousQuestion()"><<</md-button>
+                        <span class="md-subhead">Question {{index + 1}} out of {{count}}</span>
+                        <md-button ng-disabled="choice == null" class="md-raised md-primary" style="border-radius: 0.2em;" ng-click="nextQuestion()">>></md-button>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <br>Copyright &copy; 2018 MyRelevate<br>Questions or comments?<br>Reach us at: <a href="mailto:relevate@outlook.com">relevate@outlook.com</a>
+            </footer>
+
+            <!--Resolve whether items below are needed?-->
+
+            <form></form>
+            <!--ng-submit="submit()"     was between form and ng-controller --->
+
+            <p id="quizData"></p> <!---Could be used to access relevant .JSON data about the quiz elements in quizzes_art.json-->
         </div>
-    </div>
-    <!--
-        This file governs the appearance and function of an opened quiz (sub-view of the main quizzes section).
-
-        NOTES:
-            - May be a good idea to use the $index to increment that for each question displayed during an ngRepeat
-            - md-toolbar adds the Relevate header and swipe-out navigation menu to the template
-    -->
-
-    <form></form>
-    <!--ng-submit="submit()"     was between form and ng-controller --->
-
-    <p id="quizData"></p> <!---Could be used to access relevant .JSON data about the quiz elements in quizzes_art.json-->
+    </body>
 </html>
