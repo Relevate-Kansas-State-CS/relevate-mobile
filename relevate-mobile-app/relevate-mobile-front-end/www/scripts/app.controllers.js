@@ -133,7 +133,7 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @description This is the function for the NavigationController.
+     * @description This is the function for the trending tab of the feed view.
      */
     controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {
