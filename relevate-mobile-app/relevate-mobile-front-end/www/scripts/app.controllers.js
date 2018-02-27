@@ -9,7 +9,7 @@ angular.module('mainApp').
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
-     * @description This controller handles basic navigation on the application.
+     * @description This controller handles basic navigation on the application when the side menu is closed.
      */
     controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
@@ -22,7 +22,7 @@ angular.module('mainApp').
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
-     * @description This controller handles navigation from the side navigation bar.
+     * @description This controller handles navigation from the side navigation bar when it is open.
      */
     controller('SideNavController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.closeSideNav = function () {
@@ -40,7 +40,7 @@ angular.module('mainApp').
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdDialog Used to create dialogs in the application.
      * @param article The article data for this controller
-     * @description This controller handles an article dialog event.
+     * @description This controller handles an article dialog event, which is when an article is clicked on.
      */
     controller('ArticleDialogController', ['$scope', '$cordovaInAppBrowser', '$mdDialog', 'article', function ($scope, $cordovaInAppBrowser, $mdDialog, article) {
         $scope.article = article;
@@ -64,7 +64,7 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
      * @param $transitions Used to look at routing changes.
-     * @description This is the main controller for the feed.
+     * @description This is the main controller for the feed of the cards.
      */
     controller('FeedController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
@@ -88,7 +88,7 @@ angular.module('mainApp').
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdDialog Used to create dialogs in the application.
-     * @description This controller handles the home tab of the feed view.
+     * @description This controller handles the home tab of the feed view, which is cards suggested to the user.
      */
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
@@ -133,7 +133,7 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @description This is the function for the trending tab of the feed view.
+     * @description This is the function for the trending tab of the feed view, which is cards that are trending in views.
      */
     controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {
@@ -156,7 +156,7 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @description This is the controller for the recent tab of the feed view.
+     * @description This is the controller for the recent tab of the feed view, which is the most recent cards.
      */
     controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
         var options = {
@@ -181,7 +181,7 @@ angular.module('mainApp').
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the following view.
+     * @description This is the controller for the following view, which is where you can follow contributors.
      */
     controller('FollowingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
         $scope.openSideNav = function () {
@@ -196,6 +196,14 @@ angular.module('mainApp').
             $scope.following = response.data;
         });
     }]).
+    /**
+     * @function QuizTabController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
     controller('QuizTabController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
@@ -208,8 +216,8 @@ angular.module('mainApp').
      * @requires $state
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for quizzes.
-     * @param $state Used to route the app to the open quiz view when the "view quiz"button is tapped.
-     * @description This is the controller for the quizzes view.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
+     * @description This is the controller for the quizzes view and cards.
      */
     controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
         $scope.OpenQuiz = function (quizObject) {
@@ -282,7 +290,7 @@ angular.module('mainApp').
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the journals view.
+     * @description This is the controller for the journals view, which users will be able to respond to prompts.
      */
     controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
         $scope.openSideNav = function () {
