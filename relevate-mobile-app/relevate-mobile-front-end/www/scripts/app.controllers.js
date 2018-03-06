@@ -273,6 +273,24 @@ angular.module('mainApp').
         //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
+     * @function JournalSelectionController
+     * @requires $scope
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for journal prompts.
+     * @param $state Used to route the app to the journal selection view when the "view journal "button is activated.
+     * @description This is the controller for the journal selection view.
+     */
+    controller('JournalSelectionController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.OpenJournal = function (journalObject) {
+            $state.go('journal.open-journal', { journal: journalObject }); //NOTE: This is being adapted from the QuizzesTabController. TODO: Double check for syntax and attach proper routing, etc.
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
      * @function JournalsTabController
      * @requires $scope
      * @requires $http

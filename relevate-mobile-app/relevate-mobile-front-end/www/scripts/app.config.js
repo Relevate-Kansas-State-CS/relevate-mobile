@@ -68,6 +68,10 @@
                   template: '<finished-quiz-view></finished-quiz-view>',
                   params: { quiz: null, answers: null }
               }).
+              state('journalSelection', {
+                  url: '/journalSelection',
+                  template: '<journal-selection-view></journal-selection-view><div ui-view></div>'
+              }).
               state('journals', {
                   url: '/journals',
                   template: '<journals-view></journals-view><div ui-view></div>'

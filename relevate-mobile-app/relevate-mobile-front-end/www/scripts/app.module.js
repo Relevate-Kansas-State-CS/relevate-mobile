@@ -16,6 +16,9 @@
  * @requires openQuizView
  * @requires journalsView
  * @requires feedView
+ * @requires quizView
+ * @requires finishedQuizView
+ * @requires journalSelectionView
  * @description This is the main module for the application.
  */
 angular.module('mainApp', [
@@ -38,5 +41,6 @@ angular.module('mainApp', [
     'journalsView',
     'feedView',
     'quizView',
-    'finishedQuizView'
+    'finishedQuizView',
+    'journalSelectionView'
 ]);
