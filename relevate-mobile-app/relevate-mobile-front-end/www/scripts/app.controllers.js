@@ -196,6 +196,14 @@ angular.module('mainApp').
             $scope.following = response.data;
         });
     }]).
+    /**
+     * @function QuizTabController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the quiz view.
+     */
     controller('QuizTabController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
@@ -208,7 +216,7 @@ angular.module('mainApp').
      * @requires $state
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for quizzes.
-     * @param $state Used to route the app to the open quiz view when the "view quiz"button is tapped.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
      * @description This is the controller for the quizzes view.
      */
     controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
@@ -223,6 +231,7 @@ angular.module('mainApp').
      * @function OpenQuizController
      * @requires $scope
      * @requires $mdSidenav
+     * @requires $stateParams
      * @requires $stateParams
      * @requires $state
      * @param $scope The scope of the controller.
@@ -273,48 +282,38 @@ angular.module('mainApp').
         //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
-     * @function JournalSelectionController
+     * @function JournalsBrowserController
      * @requires $scope
      * @requires $http
      * @requires $state
      * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for journal prompts.
-     * @param $state Used to route the app to the journal selection view when the "view journal "button is activated.
-     * @description This is the controller for the journal selection view.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
      */
-    controller('JournalSelectionController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
-        $scope.OpenJournal = function (journalObject) {
-            $state.go('journal.open-journal', { journal: journalObject }); //NOTE: This is being adapted from the QuizzesTabController. TODO: Double check for syntax and attach proper routing, etc.
+    controller('JournalsBrowserController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.ViewJournal = function (journalObject) {
+            $state.go('openJournalView', { journal: journalObject });
         }
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;
         });
     }]).
     /**
-     * @function JournalsTabController
+     * @function OpenJournalController
      * @requires $scope
      * @requires $http
-     * @requires $cordovaInAppBrowser
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $http Used to retrieve data for current journal.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the journals view.
+     * @description This is the controller for the open journal view.
      */
-    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+    controller('OpenJournalController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
-        };
-        $http.get('data/journals_art.json').then(function (response) {
-            $scope.articles = response.data;
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
         });
     }]);

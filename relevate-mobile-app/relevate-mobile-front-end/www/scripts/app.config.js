@@ -68,13 +68,13 @@
                   template: '<finished-quiz-view></finished-quiz-view>',
                   params: { quiz: null, answers: null }
               }).
-              state('journalSelection', {
-                  url: '/journalSelection',
-                  template: '<journal-selection-view></journal-selection-view><div ui-view></div>'
+              state('journalsBrowserView', {
+                  url: '/journalsBrowserView',
+                  template: '<journals-browser-view></journals-browser-view><div ui-view></div>'
               }).
-              state('journals', {
-                  url: '/journals',
-                  template: '<journals-view></journals-view><div ui-view></div>'
+              state('openJournalView', {
+                  url: '/openJournalView',
+                  template: '<open-journal-view></open-journal-view><div ui-view></div>'
               });
           $urlRouterProvider.otherwise('/feed/home');
       }
