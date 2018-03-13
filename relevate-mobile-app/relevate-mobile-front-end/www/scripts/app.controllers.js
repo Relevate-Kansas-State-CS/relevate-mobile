@@ -281,30 +281,38 @@ angular.module('mainApp').
         //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
-     * @function JournalsTabController
+     * @function JournalsBrowserController
      * @requires $scope
      * @requires $http
-     * @requires $cordovaInAppBrowser
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
+     */
+    controller('JournalsBrowserController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.ViewJournal = function (journalObject) {
+            $state.go('openJournalView', { journal: journalObject });
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
+     * @function OpenJournalController
+     * @requires $scope
+     * @requires $http
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
-     * @param $http Used to retrieve data for articles.
-     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $http Used to retrieve data for current journal.
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the journals view, which users will be able to respond to prompts.
      */
-    controller('JournalsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+    controller('OpenJournalController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         };
-        var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        };
-        $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
-        };
-        $http.get('data/journals_art.json').then(function (response) {
-            $scope.articles = response.data;
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
         });
     }]);
