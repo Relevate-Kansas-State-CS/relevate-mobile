@@ -271,3 +271,4 @@ __pycache__/
 # Config files for back-end
 
 **/relevate-mobile-back-end/config.js
+/relevate-mobile-app/relevate-mobile-front-end
