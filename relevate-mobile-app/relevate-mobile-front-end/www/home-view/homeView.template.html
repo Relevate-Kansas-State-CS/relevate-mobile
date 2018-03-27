@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Home View</title>
+        <meta charset="utf-8">
     </head>
     <md-card ng-repeat="article in articles track by $index" ng-init="color = randomColor()" flex>
         <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">

@@ -1,0 +1,61 @@
+﻿<!--
+    This file governs the appearance and function of the Account section.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Account View</title>
+    <meta charset="utf-8">
+    <style>
+        md-input-container .md-input {
+            border-color: rgb(64, 211, 255) !important;
+            width: auto !important;
+        }
+        md-card-title-text {
+            text-align: center !important;
+        }
+    </style>
+</head>
+<body>
+    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+        <!--This top md-toolbar section adds the Relevate banner at the top of the view (still requires mdSidenav stuff in controller to work)-->
+        <div class="md-toolbar-tools">
+            <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
+                <ng-md-icon icon="menu" class="white"></ng-md-icon>
+            </md-button>
+            <img layout="start center" layout-padding ng-src="images/RelevateLogoL.png" width="64" height="48" />
+            <h2 layout="start center" md-truncate class="white">Account</h2>
+        </div>
+    </md-toolbar>
+
+    <div class="account-card">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Account Management</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div layout="column">
+                    <md-input-container class="md-block">
+                        <!-- Use floating placeholder instead of label -->
+                        <label>Email</label>
+                        <ng-md-icon icon="email" class="purple"></ng-md-icon>
+                        <input type="email" placeholder="Email" ng-required="true">
+                    </md-input-container>
+                    <md-input-container border-bottom="3px solid blue">
+                        <label>Password</label>
+                        <ng-md-icon icon="info_outline" class="light-blue"></ng-md-icon>
+                        <input type="text" placeholder="Password" ng-required="true">
+                    </md-input-container>
+                </div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="space-around center">
+                <md-button class="takeQuizButton" ng-click=""><!--Placeholder for ng-click action-->Log In</md-button>
+                <md-button class="takeQuizButton" ng-click=""><!--Placeholder for ng-click action-->Sign Up</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</body>
+</html>

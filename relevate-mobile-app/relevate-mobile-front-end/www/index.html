@@ -11,6 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.min.css" />
     <link rel="stylesheet" type="text/css" href="lib/angular-material-icons/angular-material-icons.css" />
     <link rel="stylesheet" type="text/css" href="css/style_elements.css" />
@@ -29,30 +30,34 @@
                         <ng-md-icon icon="home" class="purple"></ng-md-icon>
                         <p>Home</p>
                     </md-list-item>
-                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                    <!--<md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
                         <ng-md-icon icon="grade" class="orange"></ng-md-icon>
                         <p>Favorites</p>
-                    </md-list-item>
+                    </md-list-item> ******REMOVED UNTIL FUNCTIONAL-->
                     <md-list-item ui-sref="following" ng-click="closeSideNav()">
                         <ng-md-icon icon="supervisor_account" class="light-blue"></ng-md-icon>
                         <p>Following</p>
                     </md-list-item>
                     <md-list-item ui-sref="quiz.quizzes" ng-click="closeSideNav()">
-                        <ng-md-icon icon="launch" class="dark-blue"></ng-md-icon>
+                        <ng-md-icon icon="school" class="gold"></ng-md-icon>
                         <p>Quizzes</p>
                     </md-list-item>
-                    <md-list-item ui-sref="journals" ng-click="closeSideNav()">
+                    <md-list-item ui-sref="journalsBrowserView" ng-click="closeSideNav()">
                         <ng-md-icon icon="book" class="red"></ng-md-icon>
                         <p>Journals</p>
                     </md-list-item>
-                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
-                        <ng-md-icon icon="history" class="orange"></ng-md-icon>
-                        <p>History</p>
+                    <!--<md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                         <ng-md-icon icon="history" class="orange"></ng-md-icon>
+                         <p>History</p>
+                     </md-list-item> ******REMOVED UNTIL FUNCTIONAL-->
+                    <md-list-item ui-sref="accountView" ng-click="closeSideNav()">
+                        <ng-md-icon icon="account_box" class="dark-blue"></ng-md-icon>
+                        <p>Account</p>
                     </md-list-item>
-                    <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
-                        <ng-md-icon icon="settings" class="gray"></ng-md-icon>
-                        <p>Settings</p>
-                    </md-list-item>
+                    <!-- <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
+                         <ng-md-icon icon="settings" class="gray"></ng-md-icon>
+                         <p>Settings</p>
+                     </md-list-item> ******REMOVED UNTIL FUNCTIONAL-->
                 </md-list>
             </md-content>
         </md-sidenav>
@@ -89,9 +94,13 @@
 <script type="text/javascript" src="open-quiz-view/openQuizView.component.js"></script>
 <script type="text/javascript" src="feed-view/feedView.module.js"></script>
 <script type="text/javascript" src="feed-view/feedView.component.js"></script>
-<script type="text/javascript" src="journals-view/journalsView.module.js"></script>
-<script type="text/javascript" src="journals-view/journalsView.component.js"></script>
+<script type="text/javascript" src="open-journal-view/openJournalView.module.js"></script>
+<script type="text/javascript" src="open-journal-view/openJournalView.component.js"></script>
 <script type="text/javascript" src="quiz-view/quizView.module.js"></script>
 <script type="text/javascript" src="quiz-view/quizView.component.js"></script>
 <script type="text/javascript" src="finished-quiz-view/finishedQuizView.module.js"></script>
 <script type="text/javascript" src="finished-quiz-view/finishedQuizView.component.js"></script>
+<script type="text/javascript" src="journals-browser-view/journalsBrowserView.module.js"></script>
+<script type="text/javascript" src="journals-browser-view/journalsBrowserView.component.js"></script>
+<script type="text/javascript" src="account-view/accountView.module.js"></script>
+<script type="text/javascript" src="account-view/accountView.component.js"></script>

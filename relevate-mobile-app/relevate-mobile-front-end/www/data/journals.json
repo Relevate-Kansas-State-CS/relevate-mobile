@@ -1,0 +1,26 @@
+[
+  {
+    "journal_title": "Placeholder Journal",
+    "journal_image": "images/journals/thought-bubble.png",
+    "journal_description": "Describe How You're Feeling",
+    "journal_prompt": "What's on your mind? (Placeholder)",
+    "journal_tags": [ "Mock Tag", "Placeholder Tag" ],
+    "contributor_pic": "images/contributors/AmberVennum.jpg",
+    "contributor_name": "Amber Vennum",
+    "contributor_bio": "",
+    "publish_date": "March 13, 2018",
+    "update_date": "March 13, 2018"
+  },
+  {
+    "journal_title": "Placeholder Journal #2",
+    "journal_image": "images/journals/thought-bubble.png",
+    "journal_description": "Clear the air: Write a bit about your latest relationship hurdle",
+    "journal_prompt": "What's on your mind? (Placeholder)",
+    "journal_tags": [ "Mock Tag", "Placeholder Tag" ],
+    "contributor_pic": "images/contributors/AmberVennum.jpg",
+    "contributor_name": "Amber Vennum",
+    "contributor_bio": "",
+    "publish_date": "March 13, 2018",
+    "update_date": "March 13, 2018"
+  }
+]
