@@ -75,6 +75,10 @@
               state('openJournalView', {
                   url: '/openJournalView',
                   template: '<open-journal-view></open-journal-view><div ui-view></div>'
+              }).
+              state('accountView', {
+                  url: '/accountView',
+                  template: '<account-view></account-view><div ui-view></div>'
               });
           $urlRouterProvider.otherwise('/feed/home');
       }

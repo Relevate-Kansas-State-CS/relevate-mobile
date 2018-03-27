@@ -14,7 +14,7 @@ angular.module('mainApp').
     controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
+        }
     }]).
     /**
      * @function SideNavController
@@ -27,7 +27,7 @@ angular.module('mainApp').
     controller('SideNavController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.closeSideNav = function () {
             $mdSidenav('left').close();
-        };
+        }
     }]).
     /**
      * @function ArticleDialogController
@@ -48,13 +48,13 @@ angular.module('mainApp').
             location: 'yes',
             clearcache: 'yes',
             toolbar: 'no'
-        };
+        }
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        };
+        }
         $scope.Close = function () {
             $mdDialog.hide();
-        };
+        }
     }]).
     /**
      * @function FeedController
@@ -69,7 +69,7 @@ angular.module('mainApp').
     controller('FeedController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
+        }
         $scope.currentNavItem = 'home';
         $transitions.onSuccess({}, function (trans) {
             var path = trans.to();
@@ -95,10 +95,10 @@ angular.module('mainApp').
             location: 'yes',
             clearcache: 'yes',
             toolbar: 'no'
-        };
+        }
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        };
+        }
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
@@ -123,7 +123,7 @@ angular.module('mainApp').
                 clickOutsideToClose: true,
                 locals: { article: art }
             })
-        };
+        }
     }]).
     /**
      * @function TrendingTabController
@@ -140,10 +140,10 @@ angular.module('mainApp').
             location: 'yes',
             clearcache: 'yes',
             toolbar: 'no'
-        };
+        }
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        };
+        }
         $http.get('data/trending_art.json').then(function (response) {
             $scope.articles = response.data;
         });
@@ -163,10 +163,10 @@ angular.module('mainApp').
             location: 'yes',
             clearcache: 'yes',
             toolbar: 'no'
-        };
+        }
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        };
+        }
         $http.get('data/recent_art.json').then(function (response) {
             $scope.articles = response.data;
         });
@@ -186,12 +186,12 @@ angular.module('mainApp').
     controller('FollowingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
+        }
         var options = {
             location: 'yes',
             clearcache: 'yes',
             toolbar: 'no'
-        };
+        }
         $http.get('data/following_art.json').then(function (response) {
             $scope.following = response.data;
         });
@@ -231,7 +231,6 @@ angular.module('mainApp').
      * @function OpenQuizController
      * @requires $scope
      * @requires $mdSidenav
-     * @requires $stateParams
      * @requires $stateParams
      * @requires $state
      * @param $scope The scope of the controller.
@@ -285,13 +284,18 @@ angular.module('mainApp').
      * @function JournalsBrowserController
      * @requires $scope
      * @requires $http
+     * @requires $mdSidenav
      * @requires $state
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for available journals.
+     * @param $mdSidenav This opens up the side navigation bar.
      * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
      * @description This is the controller for the journals browser view.
      */
-    controller('JournalsBrowserController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+    controller('JournalsBrowserController', ['$scope', '$http', '$mdSidenav', '$state', function ($scope, $http, $mdSidenav, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
         $scope.ViewJournal = function (journalObject) {
             $state.go('openJournalView', { journal: journalObject });
         }
@@ -312,8 +316,26 @@ angular.module('mainApp').
     controller('OpenJournalController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        };
+        }
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;
         });
+    }]).
+    /**
+         * @function AccountViewController
+         * @requires $scope
+         * @requires $http
+         * @requires $mdSidenav
+         * @param $scope The scope of the controller.
+         * @param $http Used to retrieve data for current account.
+         * @param $mdSidenav This opens up the side navigation bar.
+         * @description This is the controller for the account view.
+         */
+    controller('AccountViewController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+        /*$http.get('data/account.json').then(function (response) { THIS NEEDS CREATED when account view begins to use JSON
+            $scope.account = response.data;
+        });*/
     }]);

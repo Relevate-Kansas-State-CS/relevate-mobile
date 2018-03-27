@@ -6,8 +6,10 @@
 <html lang="en">
     <head>
         <title>Journal View</title>
+        <meta charset="utf-8">
     </head>
-    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()">
+    <body>
+    <md-toolbar class="dark-blue" md-swipe-right="openSideNav()"> <!--This top md-toolbar section adds the Relevate banner at the top of the view (still requires mdSidenav stuff in controller to work)-->
         <div class="md-toolbar-tools">
             <md-button layout-align="start center" aria-label="Side Navagation" class="md-icon-button" ng-click="openSideNav()">
                 <ng-md-icon icon="menu" class="white"></ng-md-icon>
@@ -43,4 +45,5 @@
             </div>
         </div>
     </div>
+    </body>
 </html>
