@@ -135,7 +135,7 @@ angular.module('mainApp').
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @description This is the function for the trending tab of the feed view, which is cards that are trending in views.
      */
-    controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
             location: 'yes',
             clearcache: 'yes',
@@ -144,9 +144,31 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/trending_art.json').then(function (response) {
+        $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.randomColor = function () {
+            var color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    return 'red';
+                case 1:
+                    return 'light-blue';
+                case 2:
+                    return 'purple';
+                case 3:
+                    return 'orange';
+            }
+        }
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
     }]).
     /**
      * @function RecentTabController
@@ -158,7 +180,7 @@ angular.module('mainApp').
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @description This is the controller for the recent tab of the feed view, which is the most recent cards.
      */
-    controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
             location: 'yes',
             clearcache: 'yes',
@@ -167,9 +189,31 @@ angular.module('mainApp').
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
         };
-        $http.get('data/recent_art.json').then(function (response) {
+        $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.randomColor = function () {
+            var color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    return 'red';
+                case 1:
+                    return 'light-blue';
+                case 2:
+                    return 'purple';
+                case 3:
+                    return 'orange';
+            }
+        }
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
     }]).
     /**
      * @function FollowingTabController
@@ -297,6 +341,35 @@ angular.module('mainApp').
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;
         });
+    }]).
+    /**
+     * @function AccountController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the account view.
+     */
+    controller('AccountController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+    }]).
+    /**
+     * @function CreateController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the account create view.
+     */
+    controller('CreateController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.user = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: ''
+        }
     }]).
     /**
      * @function OpenJournalController

@@ -42,5 +42,7 @@ angular.module('mainApp', [
     'feedView',
     'quizView',
     'finishedQuizView',
-    'journalsBrowserView'
+    'journalsBrowserView',
+    'accountView',
+    'createView'
 ]);
