@@ -92,12 +92,12 @@ angular.module('mainApp').
      */
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
+            location: 'no',
+            clearcache: 'no',
             toolbar: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
+            $cordovaInAppBrowser.open(url, '_system', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
@@ -137,12 +137,12 @@ angular.module('mainApp').
      */
     controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
+            location: 'no',
+            clearcache: 'no',
             toolbar: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
+            $cordovaInAppBrowser.open(url, '_system', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
@@ -182,12 +182,12 @@ angular.module('mainApp').
      */
     controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
+            location: 'no',
+            clearcache: 'no',
             toolbar: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_blank', options);
+            $cordovaInAppBrowser.open(url, '_system', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;

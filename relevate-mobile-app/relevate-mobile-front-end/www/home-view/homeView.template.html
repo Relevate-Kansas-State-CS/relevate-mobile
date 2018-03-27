@@ -1,5 +1,5 @@
 ﻿<md-card ng-repeat="article in articles track by $index" ng-init="color = randomColor()" flex>
-    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image">
+    <img ng-src="{{article.art_image}}" class="md-card-image" alt="Article Image" ng-click="OpenArticle(article.url)">
     <md-card-content layout-padding class="padding-remove">
         <span class="md-display-1 padding-right {{color}}"><a ng-click="OpenArticle(article.url)">{{article.title}}</a></span>
         <div layout="row" class="padding-remove">
