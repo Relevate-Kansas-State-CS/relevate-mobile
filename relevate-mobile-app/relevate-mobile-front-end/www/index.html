@@ -46,18 +46,10 @@
                         <ng-md-icon icon="book" class="red"></ng-md-icon>
                         <p>Journals</p>
                     </md-list-item>
-                    <!--<md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
-                         <ng-md-icon icon="history" class="orange"></ng-md-icon>
-                         <p>History</p>
-                     </md-list-item> ******REMOVED UNTIL FUNCTIONAL-->
-                    <md-list-item ui-sref="accountView" ng-click="closeSideNav()">
-                        <ng-md-icon icon="account_box" class="dark-blue"></ng-md-icon>
-                        <p>Account</p>
+                    <md-list-item ui-sref="account.create" ng-click="closeSideNav()">
+                        <ng-md-icon icon="settings" class="gray"></ng-md-icon>
+                        <p>Settings</p>
                     </md-list-item>
-                    <!-- <md-list-item ui-sref="feed.home" ng-click="closeSideNav()">
-                         <ng-md-icon icon="settings" class="gray"></ng-md-icon>
-                         <p>Settings</p>
-                     </md-list-item> ******REMOVED UNTIL FUNCTIONAL-->
                 </md-list>
             </md-content>
         </md-sidenav>
@@ -104,3 +96,5 @@
 <script type="text/javascript" src="journals-browser-view/journalsBrowserView.component.js"></script>
 <script type="text/javascript" src="account-view/accountView.module.js"></script>
 <script type="text/javascript" src="account-view/accountView.component.js"></script>
+<script type="text/javascript" src="create-view/createView.module.js"></script>
+<script type="text/javascript" src="create-view/createView.component.js"></script>
