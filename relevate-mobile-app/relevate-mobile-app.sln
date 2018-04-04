@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "relevate-mobile-front-end", "relevate-mobile-front-end\relevate-mobile-front-end.jsproj", "{596D8034-1BAF-4E40-812B-FA21AA227F99}"
-	ProjectSection(ProjectDependencies) = postProject
-		{761FFEC9-EF29-42EA-9979-4C5DB6DB0089} = {761FFEC9-EF29-42EA-9979-4C5DB6DB0089}
-	EndProjectSection
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "relevate-mobile-back-end", "relevate-mobile-back-end\relevate-mobile-back-end.njsproj", "{761FFEC9-EF29-42EA-9979-4C5DB6DB0089}"
 EndProject
