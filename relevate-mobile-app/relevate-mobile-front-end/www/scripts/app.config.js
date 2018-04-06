@@ -62,16 +62,28 @@
                     url: '/quiz',
                     template: '<quiz-view></quiz-view><div ui-view></div>'
                 }).
-                state('quiz.quizzes', {
-                    url: '/quizzes',
-                    template: '<quizzes-view></quizzes-view>'
+                state('quiz.quizzes-home', {
+                    url: '/quizzes-home',
+                    template: '<quizzes-home-view></quizzes-home-view>'
                 }).
-                state('quiz.open-quiz', {
+                state('quiz.quizzes-trending', {
+                    url: '/quizzes-trending',
+                    template: '<quizzes-trending-view></quizzes-trending-view>'
+                }).
+                state('quiz.quizzes-completed', {
+                    url: '/quizzes-completed',
+                    template: '<quizzes-completed-view></quizzes-completed-view>'
+                }).
+                state('quiz-open', {
+                    url: '/quiz-open',
+                    template: '<quiz-open-view></quiz-open-view><div ui-view></div>'
+                }).
+                state('quiz-open.open-quiz', {
                     url: '/open-quiz',
                     template: '<open-quiz-view></open-quiz-view>',
                     params: { quiz: null, index: null, count: null, answers: null }
                 }).
-                state('quiz.finished-quiz', {
+                state('quiz-open.finished-quiz', {
                     url: '/finished-quiz',
                     template: '<finished-quiz-view></finished-quiz-view>',
                     params: { quiz: null, answers: null }

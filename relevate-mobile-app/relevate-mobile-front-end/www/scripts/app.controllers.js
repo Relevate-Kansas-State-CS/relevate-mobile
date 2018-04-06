@@ -248,13 +248,30 @@ angular.module('mainApp').
      * @param $mdSidenav This opens up the side navigation bar.
      * @description This is the controller for the navigation of the quizzes view.
      */
-    controller('QuizTabController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+    controller('QuizTabController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
+        $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            var path = trans.to();
+            if (path.name === 'quiz' || path.name === 'quiz.quizzesHome' || path.name === 'quiz.quizzesTrending' || path.name === 'quiz.quizzesCompleted') {
+                $scope.currentNavItem = path.data.selectedItem;
+            }
+        });
     }]).
     /**
-     * @function QuizzesTabController
+     * @function QuizOpenController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('QuizOpenController', ['$scope', function ($scope) {
+    }]).
+    /**
+     * @function QuizzesHomeController
      * @requires $scope
      * @requires $http
      * @requires $state
@@ -263,9 +280,45 @@ angular.module('mainApp').
      * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
      * @description This is the controller for the quizzes view and cards.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+    controller('QuizzesHomeController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
         $scope.OpenQuiz = function (quizObject) {
-            $state.go('quiz.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+        }
+        $http.get('data/quizzes_art.json').then(function (response) {
+            $scope.quizzes = response.data;
+        });
+    }]).
+    /**
+     * @function QuizzesTrendingController
+     * @requires $scope
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for quizzes.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
+     * @description This is the controller for the quizzes view and cards.
+     */
+    controller('QuizzesTrendingController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+        }
+        $http.get('data/quizzes_art.json').then(function (response) {
+            $scope.quizzes = response.data;
+        });
+    }]).
+    /**
+     * @function QuizzesCompletedController
+     * @requires $scope
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for quizzes.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
+     * @description This is the controller for the quizzes view and cards.
+     */
+    controller('QuizzesCompletedController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
         }
         $http.get('data/quizzes_art.json').then(function (response) {
             $scope.quizzes = response.data;
@@ -283,10 +336,7 @@ angular.module('mainApp').
      * @param $state Used to route the app to the appropriate view when a question navigation button is pressed.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', '$state', function ($scope, $mdSidenav, $stateParams, $state) {
-        $scope.openSideNav = function () {
-            $mdSidenav('left').open();
-        }
+    controller('OpenQuizController', ['$scope', '$stateParams', '$state', function ($scope, $stateParams, $state) {
         $scope.count = $stateParams.count; //parameter from previous question or QuizzesTab
         $scope.index = $stateParams.index; // ""                    ""
         $scope.quiz = $stateParams.quiz; //     ""              ""
@@ -295,16 +345,16 @@ angular.module('mainApp').
             if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
             $stateParams.answers[$scope.index] = $scope.choice;
             $scope.index--;
-            $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+            $state.go('quiz-open.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
         }
         $scope.nextQuestion = function () {
             if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
             $stateParams.answers[$scope.index] = $scope.choice;
             $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
             if ($scope.index === $scope.count) {
-                $state.go('quiz.finished-quiz', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
+                $state.go('quiz-open.finished-quiz', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
             } else {
-                $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+                $state.go('quiz-open.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
             }
         };
     }]).
@@ -327,6 +377,7 @@ angular.module('mainApp').
     /**
      * @function JournalsBrowserController
      * @requires $scope
+     * @requires $mdSidenav
      * @requires $http
      * @requires $state
      * @param $scope The scope of the controller.
@@ -334,7 +385,10 @@ angular.module('mainApp').
      * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
      * @description This is the controller for the journals browser view.
      */
-    controller('JournalsBrowserController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+    controller('JournalsBrowserController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
         $scope.ViewJournal = function (journalObject) {
             $state.go('openJournalView', { journal: journalObject });
         }
