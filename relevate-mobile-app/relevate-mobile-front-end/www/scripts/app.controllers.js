@@ -255,7 +255,7 @@ angular.module('mainApp').
         $scope.currentNavItem = 'home';
         $transitions.onSuccess({}, function (trans) {
             var path = trans.to();
-            if (path.name === 'quiz' || path.name === 'quiz.quizzesHome' || path.name === 'quiz.quizzesTrending' || path.name === 'quiz.quizzesCompleted') {
+            if (path.name === 'quiz' || path.name === 'quiz.quizzes-home' || path.name === 'quiz.quizzes-trending' || path.name === 'quiz.quizzes-completed') {
                 $scope.currentNavItem = path.data.selectedItem;
             }
         });
@@ -375,7 +375,37 @@ angular.module('mainApp').
         //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
-     * @function JournalsBrowserController
+     * @function QuizOpenController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('JournalOpenController', ['$scope', function ($scope) {
+    }]).
+    /**
+     * @function QuizTabController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('JournalsController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            var path = trans.to();
+            if (path.name === 'journals' || path.name === 'journals.journals-home' || path.name === 'journals.journals-trending' || path.name === 'journals.journals-completed') {
+                $scope.currentNavItem = path.data.selectedItem;
+            }
+        });
+    }]).
+    /**
+     * @function JournalsHomeController
      * @requires $scope
      * @requires $mdSidenav
      * @requires $http
@@ -385,12 +415,56 @@ angular.module('mainApp').
      * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
      * @description This is the controller for the journals browser view.
      */
-    controller('JournalsBrowserController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+    controller('JournalsHomeController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         }
-        $scope.ViewJournal = function (journalObject) {
-            $state.go('openJournalView', { journal: journalObject });
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
+     * @function JournalsTrendingController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
+     */
+    controller('JournalsTrendingController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
+     * @function JournalsTrendingController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
+     */
+    controller('JournalsCompletedController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
         }
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;

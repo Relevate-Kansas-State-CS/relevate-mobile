@@ -64,14 +64,23 @@
                 }).
                 state('quiz.quizzes-home', {
                     url: '/quizzes-home',
+                    data: {
+                        'selectedItem': 'home'
+                    },
                     template: '<quizzes-home-view></quizzes-home-view>'
                 }).
                 state('quiz.quizzes-trending', {
                     url: '/quizzes-trending',
+                    data: {
+                        'selectedItem': 'trending'
+                    },
                     template: '<quizzes-trending-view></quizzes-trending-view>'
                 }).
                 state('quiz.quizzes-completed', {
                     url: '/quizzes-completed',
+                    data: {
+                        'selectedItem': 'completed'
+                    },
                     template: '<quizzes-completed-view></quizzes-completed-view>'
                 }).
                 state('quiz-open', {
@@ -88,13 +97,39 @@
                     template: '<finished-quiz-view></finished-quiz-view>',
                     params: { quiz: null, answers: null }
                 }).
-                state('journalsBrowserView', {
-                    url: '/journalsBrowserView',
-                    template: '<journals-browser-view></journals-browser-view><div ui-view></div>'
+                state('journals', {
+                    url: '/journals',
+                    template: '<journals-view></journals-view><div ui-view></div>'
                 }).
-                state('openJournalView', {
-                    url: '/openJournalView',
-                    template: '<open-journal-view></open-journal-view><div ui-view></div>'
+                state('journals.journals-home', {
+                    url: '/journals-home',
+                    data: {
+                        'selectedItem': 'home'
+                    },
+                    template: '<journals-home-view></journals-home-view>'
+                }).
+                state('journals.journals-trending', {
+                    url: '/journals-trending',
+                    data: {
+                        'selectedItem': 'trending'
+                    },
+                    template: '<journals-trending-view></journals-trending-view>'
+                }).
+                state('journals.journals-completed', {
+                    url: '/journals-completed',
+                    data: {
+                        'selectedItem': 'completed'
+                    },
+                    template: '<journals-completed-view></journals-completed-view>'
+                }).
+                state('journal-open', {
+                    url: '/journal-open',
+                    template: '<journal-open-view></journal-open-view><div ui-view></div>'
+                }).
+                state('journal-open.open-journal', {
+                    url: '/open-journal',
+                    template: '<open-journal-view></open-journal-view>',
+                    params: { journal: null }
                 });
             $urlRouterProvider.otherwise('/account/create');
         }
