@@ -45,9 +45,10 @@ angular.module('mainApp').
     controller('ArticleDialogController', ['$scope', '$cordovaInAppBrowser', '$mdDialog', 'article', function ($scope, $cordovaInAppBrowser, $mdDialog, article) {
         $scope.article = article;
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
         };
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
@@ -94,10 +95,11 @@ angular.module('mainApp').
         var options = {
             location: 'no',
             clearcache: 'no',
-            toolbar: 'no'
+            toolbar: 'no',
+            zoom: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_system', options);
+            $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
@@ -139,10 +141,11 @@ angular.module('mainApp').
         var options = {
             location: 'no',
             clearcache: 'no',
-            toolbar: 'no'
+            toolbar: 'no',
+            zoom: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_system', options);
+            $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
@@ -184,10 +187,11 @@ angular.module('mainApp').
         var options = {
             location: 'no',
             clearcache: 'no',
-            toolbar: 'no'
+            toolbar: 'no',
+            zoom: 'no'
         };
         $scope.OpenArticle = function (url) {
-            $cordovaInAppBrowser.open(url, '_system', options);
+            $cordovaInAppBrowser.open(url, '_blank', options);
         };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
@@ -232,9 +236,10 @@ angular.module('mainApp').
             $mdSidenav('left').open();
         };
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
         };
         $http.get('data/following_art.json').then(function (response) {
             $scope.following = response.data;
