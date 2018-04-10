@@ -1,41 +1,19 @@
-﻿<!--This page controls the content and general layout appearance of the landing page a user is taken to upon quiz completion.-->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Finished Quiz</title>
-        <meta charset="utf-8">
-        <style>
-            md-card-actions {
-                padding-top: 12%;
-            }
-        </style>
-    </head>
-    <body>
-        <header class="finishedQuizHeader">
-            <p>Thanks for participating!</p>
-        </header>
-        <main>
-            <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Quiz Contributer</span>
-                        <span class="md-subhead">Amber Vennum</span> <!--TODO: Make this dynamically load contributor information and photograph-->
-                    </md-card-title-text>
-                    <md-card-title-media>
-                        <div class="md-media-md card-media">
-                            <img layout-align="end center" ng-src="images/contributors/AmberVennum.jpg">
-                        </div>
-                    </md-card-title-media>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="center center">
-                    <md-button layout-align="center center" ui-sref="quiz.quizzes" class="md-raised md-primary">More Quizzes</md-button>
-                    <md-button layout-align="center center" ui-sref="feed.home" class="md-raised md-primary">Go Home</md-button> <!--TODO: Route this button back to home page-->
-                    <md-button layout-align="center center" ui-sref="following" class="md-raised md-primary">Follow</md-button> <!--TODO: Route this to follow the associated contributor-->
-                </md-card-actions>
-            </md-card>
-        </main>
-        <footer>
-            <br>Copyright &copy; 2018 MyRelevate<br>Questions or comments?<br>Reach us at: <a href="mailto:relevate@outlook.com">relevate@outlook.com</a>
-        </footer>
-    </body>
-</html>
+﻿<h1 class="md-display-2" style="text-align:center">Thanks for participating!</h1>
+<md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Quiz Contributer</span>
+            <span class="md-subhead">Amber Vennum</span> <!--TODO: Make this dynamically load contributor information and photograph-->
+        </md-card-title-text>
+        <md-card-title-media>
+            <div class="md-media-md card-media">
+                <img layout-align="end center" ng-src="images/contributors/AmberVennum.jpg" /> <!--TODO: Ensure pic does not overlap with buttons-->
+            </div>
+        </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="center center" style="padding-top: 12%">
+        <md-button layout-align="center center" ui-sref="quiz.quizzes-home" class="md-raised md-primary">More Quizzes</md-button>
+        <md-button layout-align="center center" ui-sref="feed.home" class="md-raised md-primary">Go Home</md-button> <!--TODO: Route this button back to home page-->
+        <md-button layout-align="center center" ui-sref="following" class="md-raised md-primary">Follow</md-button> <!--TODO: Route this to follow the associated contributor-->
+    </md-card-actions>
+</md-card>

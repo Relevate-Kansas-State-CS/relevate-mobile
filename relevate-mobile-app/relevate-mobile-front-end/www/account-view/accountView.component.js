@@ -7,5 +7,5 @@ angular.
     module('accountView').
     component('accountView', {
         templateUrl: 'account-view/accountView.template.html',
-        controller: 'AccountViewController'
+        controller: 'AccountController'
     });

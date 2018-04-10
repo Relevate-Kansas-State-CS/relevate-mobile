@@ -4,16 +4,11 @@
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, and the Windows Universal Platform.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Your name here</author>
   <vs:template-name>BlankJS</vs:template-name>
-  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
-  <engine name="android" spec="5.2.1" />
-  <engine name="ios" spec="4.2.0" />
-  <engine name="windows" spec="4.4.2" />
   <content src="index.html" />
   <access origin="*" />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->
-  <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
   <allow-navigation href="http://*/*" />
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
@@ -104,15 +99,17 @@
     <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
     <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
   </platform>
-  <plugin name="cordova-plugin-code-push" spec="~1.9.8-beta" />
-  <plugin name="cordova-plugin-device" spec="~1.1.6" />
-  <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
-  <plugin name="cordova-plugin-device-orientation" spec="~1.0.7" />
-  <plugin name="code-push" spec="~2.0.2-beta" />
   <plugin name="cordova-plugin-compat" spec="~1.1.0" />
-  <plugin name="cordova-plugin-dialogs" spec="~1.3.3" />
-  <plugin name="cordova-plugin-file" spec="~4.3.3" />
-  <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
   <plugin name="cordova-plugin-zip" spec="~3.1.0" />
   <preference name="Orientation" value="portrait" />
+  <preference name="Fullscreen" value="False" />
+  <vs:toolsetVersion>6.3.1</vs:toolsetVersion>
+  <engine name="android" spec="5.2.1" />
+  <engine name="ios" spec="4.2.0" />
+  <engine name="windows" spec="4.4.2" />
+  <plugin name="cordova-plugin-device" spec="~2.0.1" />
+  <plugin name="cordova-plugin-inappbrowser" spec="~2.0.2" />
+  <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
+  <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
+  <plugin name="cordova-plugin-file" spec="~6.0.1" />
 </widget>

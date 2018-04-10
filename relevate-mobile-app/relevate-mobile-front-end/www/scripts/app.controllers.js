@@ -9,12 +9,12 @@ angular.module('mainApp').
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
-     * @description This controller handles basic navigation on the application.
+     * @description This controller handles basic navigation on the application when the side menu is closed.
      */
     controller('NavigationController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
     }]).
     /**
      * @function SideNavController
@@ -22,12 +22,12 @@ angular.module('mainApp').
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
-     * @description This controller handles navigation from the side navigation bar.
+     * @description This controller handles navigation from the side navigation bar when it is open.
      */
     controller('SideNavController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
         $scope.closeSideNav = function () {
             $mdSidenav('left').close();
-        }
+        };
     }]).
     /**
      * @function ArticleDialogController
@@ -40,21 +40,22 @@ angular.module('mainApp').
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdDialog Used to create dialogs in the application.
      * @param article The article data for this controller
-     * @description This controller handles an article dialog event.
+     * @description This controller handles an article dialog event, which is when an article is clicked on.
      */
     controller('ArticleDialogController', ['$scope', '$cordovaInAppBrowser', '$mdDialog', 'article', function ($scope, $cordovaInAppBrowser, $mdDialog, article) {
         $scope.article = article;
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        }
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        }
+        };
         $scope.Close = function () {
             $mdDialog.hide();
-        }
+        };
     }]).
     /**
      * @function FeedController
@@ -64,12 +65,12 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $mdSidenav Used to configure the side navigation bar.
      * @param $transitions Used to look at routing changes.
-     * @description This is the main controller for the feed.
+     * @description This is the main controller for the feed of the cards.
      */
     controller('FeedController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
         $scope.currentNavItem = 'home';
         $transitions.onSuccess({}, function (trans) {
             var path = trans.to();
@@ -88,17 +89,18 @@ angular.module('mainApp').
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdDialog Used to create dialogs in the application.
-     * @description This controller handles the home tab of the feed view.
+     * @description This controller handles the home tab of the feed view, which is cards suggested to the user.
      */
     controller('HomeTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        }
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        }
+        };
         $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
@@ -123,7 +125,7 @@ angular.module('mainApp').
                 clickOutsideToClose: true,
                 locals: { article: art }
             })
-        }
+        };
     }]).
     /**
      * @function TrendingTabController
@@ -133,20 +135,43 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @description This is the function for the trending tab of the feed view.
+     * @description This is the function for the trending tab of the feed view, which is cards that are trending in views.
      */
-    controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('TrendingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        }
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        }
-        $http.get('data/trending_art.json').then(function (response) {
+        };
+        $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.randomColor = function () {
+            var color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    return 'red';
+                case 1:
+                    return 'light-blue';
+                case 2:
+                    return 'purple';
+                case 3:
+                    return 'orange';
+            }
+        }
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
     }]).
     /**
      * @function RecentTabController
@@ -156,20 +181,43 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
-     * @description This is the controller for the recent tab of the feed view.
+     * @description This is the controller for the recent tab of the feed view, which is the most recent cards.
      */
-    controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', function ($scope, $http, $cordovaInAppBrowser) {
+    controller('RecentTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdDialog', function ($scope, $http, $cordovaInAppBrowser, $mdDialog) {
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        }
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
         $scope.OpenArticle = function (url) {
             $cordovaInAppBrowser.open(url, '_blank', options);
-        }
-        $http.get('data/recent_art.json').then(function (response) {
+        };
+        $http.get('data/home_art.json').then(function (response) {
             $scope.articles = response.data;
         });
+        $scope.randomColor = function () {
+            var color = Math.floor(Math.random() * 4);
+            switch (color) {
+                case 0:
+                    return 'red';
+                case 1:
+                    return 'light-blue';
+                case 2:
+                    return 'purple';
+                case 3:
+                    return 'orange';
+            }
+        }
+        $scope.OpenDialog = function (art) {
+            $mdDialog.show({
+                controller: 'ArticleDialogController',
+                templateUrl: 'dialogs/article.template.html',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                locals: { article: art }
+            })
+        };
     }]).
     /**
      * @function FollowingTabController
@@ -181,17 +229,18 @@ angular.module('mainApp').
      * @param $http Used to retrieve data for articles.
      * @param $cordovaInAppBrowser Used for opening articles in application.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the following view.
+     * @description This is the controller for the following view, which is where you can follow contributors.
      */
     controller('FollowingTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
         var options = {
-            location: 'yes',
-            clearcache: 'yes',
-            toolbar: 'no'
-        }
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
         $http.get('data/following_art.json').then(function (response) {
             $scope.following = response.data;
         });
@@ -202,26 +251,79 @@ angular.module('mainApp').
      * @requires $mdSidenav
      * @param $scope The scope of the controller.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the quiz view.
+     * @description This is the controller for the navigation of the quizzes view.
      */
-    controller('QuizTabController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+    controller('QuizTabController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
+        $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            var path = trans.to();
+            if (path.name === 'quiz' || path.name === 'quiz.quizzes-home' || path.name === 'quiz.quizzes-trending' || path.name === 'quiz.quizzes-completed') {
+                $scope.currentNavItem = path.data.selectedItem;
+            }
+        });
     }]).
     /**
-     * @function QuizzesTabController
+     * @function QuizOpenController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('QuizOpenController', ['$scope', function ($scope) {
+    }]).
+    /**
+     * @function QuizzesHomeController
      * @requires $scope
      * @requires $http
      * @requires $state
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for quizzes.
      * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
-     * @description This is the controller for the quizzes view.
+     * @description This is the controller for the quizzes view and cards.
      */
-    controller('QuizzesTabController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+    controller('QuizzesHomeController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
         $scope.OpenQuiz = function (quizObject) {
-            $state.go('quiz.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+        }
+        $http.get('data/quizzes_art.json').then(function (response) {
+            $scope.quizzes = response.data;
+        });
+    }]).
+    /**
+     * @function QuizzesTrendingController
+     * @requires $scope
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for quizzes.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
+     * @description This is the controller for the quizzes view and cards.
+     */
+    controller('QuizzesTrendingController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
+        }
+        $http.get('data/quizzes_art.json').then(function (response) {
+            $scope.quizzes = response.data;
+        });
+    }]).
+    /**
+     * @function QuizzesCompletedController
+     * @requires $scope
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for quizzes.
+     * @param $state Used to route the app to the open quiz view when the "view quiz" button is tapped.
+     * @description This is the controller for the quizzes view and cards.
+     */
+    controller('QuizzesCompletedController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+        $scope.OpenQuiz = function (quizObject) {
+            $state.go('quiz-open.open-quiz', { quiz: quizObject, index: 0, count: quizObject.questions.length });
         }
         $http.get('data/quizzes_art.json').then(function (response) {
             $scope.quizzes = response.data;
@@ -239,10 +341,7 @@ angular.module('mainApp').
      * @param $state Used to route the app to the appropriate view when a question navigation button is pressed.
      * @description This is the controller for the open-quiz sub-view that's displayed when a user selects/opens an available quiz from the main quiz view.
      */
-    controller('OpenQuizController', ['$scope', '$mdSidenav', '$stateParams', '$state', function ($scope, $mdSidenav, $stateParams, $state) {
-        $scope.openSideNav = function () {
-            $mdSidenav('left').open();
-        }
+    controller('OpenQuizController', ['$scope', '$stateParams', '$state', function ($scope, $stateParams, $state) {
         $scope.count = $stateParams.count; //parameter from previous question or QuizzesTab
         $scope.index = $stateParams.index; // ""                    ""
         $scope.quiz = $stateParams.quiz; //     ""              ""
@@ -251,16 +350,16 @@ angular.module('mainApp').
             if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
             $stateParams.answers[$scope.index] = $scope.choice;
             $scope.index--;
-            $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+            $state.go('quiz-open.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
         }
         $scope.nextQuestion = function () {
             if ($stateParams.answers == null) $stateParams.answers = Array($scope.count);
             $stateParams.answers[$scope.index] = $scope.choice;
             $scope.index++; //May be used to track the current state of the quiz. When the index == the total question count, we can route to a "quiz finished" ending screen, otherwise, load the next question and increment the index.
             if ($scope.index === $scope.count) {
-                $state.go('quiz.finished-quiz', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
+                $state.go('quiz-open.finished-quiz', { quiz: $scope.quiz, answers: $stateParams.answers }); //unsure about answers object, can be used to store user responses so they can be used elsewhere in the future
             } else {
-                $state.go('quiz.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
+                $state.go('quiz-open.open-quiz', { quiz: $scope.quiz, index: $scope.index, count: $scope.count, answers: $stateParams.answers }); //unsure about answers object
             }
         };
     }]).
@@ -281,27 +380,129 @@ angular.module('mainApp').
         //$http.post(url, JSON.stringify($stateParams.answers));
     }]).
     /**
-     * @function JournalsBrowserController
+     * @function QuizOpenController
      * @requires $scope
-     * @requires $http
      * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('JournalOpenController', ['$scope', function ($scope) {
+    }]).
+    /**
+     * @function QuizTabController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the quizzes view.
+     */
+    controller('JournalsController', ['$scope', '$mdSidenav', '$transitions', function ($scope, $mdSidenav, $transitions) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        $scope.currentNavItem = 'home';
+        $transitions.onSuccess({}, function (trans) {
+            var path = trans.to();
+            if (path.name === 'journals' || path.name === 'journals.journals-home' || path.name === 'journals.journals-trending' || path.name === 'journals.journals-completed') {
+                $scope.currentNavItem = path.data.selectedItem;
+            }
+        });
+    }]).
+    /**
+     * @function JournalsHomeController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $http
      * @requires $state
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for available journals.
-     * @param $mdSidenav This opens up the side navigation bar.
      * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
      * @description This is the controller for the journals browser view.
      */
-    controller('JournalsBrowserController', ['$scope', '$http', '$mdSidenav', '$state', function ($scope, $http, $mdSidenav, $state) {
+    controller('JournalsHomeController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
         }
-        $scope.ViewJournal = function (journalObject) {
-            $state.go('openJournalView', { journal: journalObject });
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
         }
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;
         });
+    }]).
+    /**
+     * @function JournalsTrendingController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
+     */
+    controller('JournalsTrendingController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
+     * @function JournalsTrendingController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @requires $http
+     * @requires $state
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for available journals.
+     * @param $state Used to route the app to the open journal view when the "view journal" button is activated.
+     * @description This is the controller for the journals browser view.
+     */
+    controller('JournalsCompletedController', ['$scope', '$mdSidenav', '$http', '$state', function ($scope, $mdSidenav, $http, $state) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+        $scope.viewJournal = function (journalObject) {
+            $state.go('journal-open.open-journal', { journal: journalObject });
+        }
+        $http.get('data/journals.json').then(function (response) {
+            $scope.journals = response.data;
+        });
+    }]).
+    /**
+     * @function AccountController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the navigation of the account view.
+     */
+    controller('AccountController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        }
+    }]).
+    /**
+     * @function CreateController
+     * @requires $scope
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the account create view.
+     */
+    controller('CreateController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
+        $scope.user = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: ''
+        }
     }]).
     /**
      * @function OpenJournalController
@@ -311,31 +512,13 @@ angular.module('mainApp').
      * @param $scope The scope of the controller.
      * @param $http Used to retrieve data for current journal.
      * @param $mdSidenav This opens up the side navigation bar.
-     * @description This is the controller for the open journal view.
+     * @description This is the controller for the journals view, which users will be able to respond to prompts.
      */
     controller('OpenJournalController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
         $scope.openSideNav = function () {
             $mdSidenav('left').open();
-        }
+        };
         $http.get('data/journals.json').then(function (response) {
             $scope.journals = response.data;
         });
-    }]).
-    /**
-         * @function AccountViewController
-         * @requires $scope
-         * @requires $http
-         * @requires $mdSidenav
-         * @param $scope The scope of the controller.
-         * @param $http Used to retrieve data for current account.
-         * @param $mdSidenav This opens up the side navigation bar.
-         * @description This is the controller for the account view.
-         */
-    controller('AccountViewController', ['$scope', '$http', '$mdSidenav', function ($scope, $http, $mdSidenav) {
-        $scope.openSideNav = function () {
-            $mdSidenav('left').open();
-        }
-        /*$http.get('data/account.json').then(function (response) { THIS NEEDS CREATED when account view begins to use JSON
-            $scope.account = response.data;
-        });*/
     }]);

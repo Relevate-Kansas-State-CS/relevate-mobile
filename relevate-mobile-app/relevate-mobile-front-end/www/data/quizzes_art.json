@@ -1,45 +1,10 @@
 [
   {
-    "quiz_title": "Are You Besties Yet?",
-    "quiz_image": "images/quizzes/stock-quiz-image.png",
-    "quiz_description": "See if YOU match these 12 marks of a flourishing friendship!",
-    "contributor_pic": "images/contributors/AmberVennum.jpg",
-    "contributor_name": "Amber Vennum",
-    "contributor_bio": "",
-    "publish_date": "October 9, 2017",
-    "update_date": "October 9, 2017",
-    "quiz_tags": [ "Mock Tag", "Placeholder Tag" ],
-    "questions": [ "Placeholder Question 1?", "Placeholder Question 2?", "Placeholder Question 3?" ],
-    "answer_choices": [
-      [ "Answer Text 1", "Answer Text 2", "Answer Text 3", "Answer Text 4" ],
-      [ "Answer Text 5", "Answer Text 6", "Answer Text 7", "Answer Text 8" ],
-      [ "Answer Text 9", "Answer Text 10", "Answer Text 11", "Answer Text 12" ]
-    ]
-  },
-  {
-    "quiz_title": "7 Signs of a Rough First Impression",
-    "quiz_image": "images/quizzes/stock-quiz-image2.png",
-    "quiz_description": "Meeting new people isn't always easy. Can you avoid these common social faux pas?",
-    "contributor_pic": "images/contributors/AmberVennum.jpg",
-    "contributor_name": "Amber Vennum",
-    "contributor_bio": "",
-    "publish_date": "October 9, 2017",
-    "update_date": "October 9, 2017",
-    "quiz_tags": [ "Mock Tag", "Placeholder Tag" ],
-    "questions": [ "Placeholder Question 1?", "Placeholder Question 2?", "Placeholder Question 3?" ],
-    "answer_choices": [
-      [ "Answer Text 1", "Answer Text 2", "Answer Text 3", "Answer Text 4" ],
-      [ "Answer Text 5", "Answer Text 6", "Answer Text 7", "Answer Text 8" ],
-      [ "Answer Text 9", "Answer Text 10", "Answer Text 11", "Answer Text 12" ]
-    ]
-  },
-  {
     "quiz_title": "Relationship Quiz",
-    "quiz_image": "images/quizzes/quiz-placeholder-image.png",
+    "quiz_image": "images/quizzes/stock-quiz-image.png",
     "quiz_description": "Placeholder Description",
     "contributor_pic": "images/contributors/MichelleWashburn-Busk",
     "contributor_name": "Michelle Washburn-Busk",
-    "contributor_bio": "",
     "publish_date": "February 17, 2018",
     "update_date": "February 17, 2018",
     "quiz_tags": [ "Mock Tag", "Placeholder Tag" ],

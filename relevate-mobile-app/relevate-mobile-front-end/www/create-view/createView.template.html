@@ -1,0 +1,27 @@
+﻿<div class="md-display-1" style="text-align:center" layout-padding>Create Account</div>
+<form layout-padding>
+    <style>
+        md-input-container .md-input {
+            border-color: #246FF2 !important;
+        }
+    </style>
+    <div layout="column">
+        <md-input-container class="md-block relevate-blue">
+            <label>First Name</label>
+            <input md-maxlength="30" ng-model="user.firstName" required name="first_name" type="text" />
+        </md-input-container>
+        <md-input-container class="md-block relevate-blue">
+            <label>Last Name</label>
+            <input md-maxlength="30" ng-model="user.lastName" required name="last_name" type="text" />
+        </md-input-container>
+        <md-input-container class="md-block relevate-blue">
+            <label>Email</label>
+            <input name="email" ng-model="user.email" required type="email" />
+        </md-input-container>
+        <md-input-container class="md-block relevate-blue">
+            <label>Password</label>
+            <input name="password" ng-model="user.password" required type="password" />
+        </md-input-container>
+        <md-button ui-sref="feed.home" class="md-raised md-primary">Create</md-button>
+    </div>
+</form>
