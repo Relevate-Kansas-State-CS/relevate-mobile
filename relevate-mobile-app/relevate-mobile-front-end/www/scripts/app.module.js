@@ -11,6 +11,10 @@
  * @requires homeView
  * @requires trendingView
  * @requires recentView
+ * @requires submitView
+ * @requires submitArticleView
+ * @requires submitQuizView
+ * @requires userSubmissionsView
  * @requires followingView
  * @requires quizzesView
  * @requires openQuizView
@@ -35,6 +39,10 @@ angular.module('mainApp', [
     'homeView',
     'trendingView',
     'recentView',
+    'submitView',
+    'submitArticleView',
+    'submitQuizView',
+    'userSubmissionsView',
     'followingView',
     'quizzesHomeView',
     'quizzesTrendingView',

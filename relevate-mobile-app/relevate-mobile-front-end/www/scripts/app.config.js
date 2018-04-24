@@ -54,6 +54,22 @@
                     },
                     template: '<recent-view></recent-view>'
                 }).
+                state('submit', {
+                    url: '/submit',
+                    template: '<submit-view></submit-view><div ui-view></div>'
+                }).
+                state('submit.submitQuiz', {
+                    url: '/submitQuiz',
+                    template: '<submit-quiz-view></submit-quiz-view><div ui-view></div>'
+                }).
+                state('submit.submitArticle', {
+                    url: '/submitArticle',
+                    template: '<submit-article-view></submit-article-view><div ui-view></div>'
+                }).
+                state('submit.userSubmissions', {
+                    url: '/userSubmissions',
+                    template: '<user-submissions-view></user-submissions-view><div ui-view></div>'
+                }).
                 state('following', {
                     url: '/following',
                     template: '<following-view></following-view><div ui-view></div>'

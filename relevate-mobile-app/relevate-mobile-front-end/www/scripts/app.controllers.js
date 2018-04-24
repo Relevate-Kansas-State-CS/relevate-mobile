@@ -220,6 +220,98 @@ angular.module('mainApp').
         };
     }]).
     /**
+     * @function SubmitTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the submit view, which is where contributors can submit content.
+     */
+    controller('SubmitTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
+    }]).
+    /**
+     * @function SubmitArticleTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the submit article view, which is where contributors can submit articles.
+     */
+    controller('SubmitArticleTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
+    }]).
+    /**
+     * @function SubmitQuizTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the submit quiz view, which is where contributors can submit quizzes.
+     */
+    controller('SubmitQuizTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
+    }]).
+    /**
+     * @function UserSubmissionsTabController
+     * @requires $scope
+     * @requires $http
+     * @requires $cordovaInAppBrowser
+     * @requires $mdSidenav
+     * @param $scope The scope of the controller.
+     * @param $http Used to retrieve data for articles.
+     * @param $cordovaInAppBrowser Used for opening articles in application.
+     * @param $mdSidenav This opens up the side navigation bar.
+     * @description This is the controller for the user submission view, which is where contributors can see content they have submitted.
+     */
+    controller('UserSubmissionsTabController', ['$scope', '$http', '$cordovaInAppBrowser', '$mdSidenav', function ($scope, $http, $cordovaInAppBrowser, $mdSidenav) {
+        $scope.openSideNav = function () {
+            $mdSidenav('left').open();
+        };
+        var options = {
+            location: 'no',
+            clearcache: 'no',
+            toolbar: 'no',
+            zoom: 'no'
+        };
+    }]).
+    /**
      * @function FollowingTabController
      * @requires $scope
      * @requires $http
