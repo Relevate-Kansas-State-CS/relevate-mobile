@@ -56,19 +56,19 @@
                 }).
                 state('submit', {
                     url: '/submit',
-                    template: '<submit-view></submit-view><div ui-view></div>'
+                    template: '<submit-view></submit-view>'
                 }).
                 state('submit.submitQuiz', {
                     url: '/submitQuiz',
-                    template: '<submit-quiz-view></submit-quiz-view><div ui-view></div>'
+                    template: '<submit-quiz-view></submit-quiz-view>'
                 }).
                 state('submit.submitArticle', {
                     url: '/submitArticle',
-                    template: '<submit-article-view></submit-article-view><div ui-view></div>'
+                    template: '<submit-article-view></submit-article-view>'
                 }).
                 state('submit.userSubmissions', {
                     url: '/userSubmissions',
-                    template: '<user-submissions-view></user-submissions-view><div ui-view></div>'
+                    template: '<user-submissions-view></user-submissions-view>'
                 }).
                 state('following', {
                     url: '/following',
