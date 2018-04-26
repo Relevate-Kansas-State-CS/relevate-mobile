@@ -56,7 +56,7 @@
                 }).
                 state('submit', {
                     url: '/submit',
-                    template: '<submit-view></submit-view>'
+                    template: '<submit-view></submit-view><div ui-view></div>'
                 }).
                 state('submit.submitQuiz', {
                     url: '/submitQuiz',
