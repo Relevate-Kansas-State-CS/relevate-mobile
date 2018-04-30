@@ -5,6 +5,7 @@
     <Name>relevate-mobile-back-end</Name>
     <RootNamespace>relevate-mobile-back-end</RootNamespace>
     <NameOfLastUsedPublishProfile>PROD</NameOfLastUsedPublishProfile>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
