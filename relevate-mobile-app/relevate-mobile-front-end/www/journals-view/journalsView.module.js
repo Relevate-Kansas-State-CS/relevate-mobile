@@ -1,6 +1,6 @@
 ﻿/**
- * @module journalsView
+ * @module quizzesView
  * @requires ngCordova
- * @description This is the journals view module for the application.
+ * @description This is the quizzes view module for the application.
  */
 angular.module('journalsView', []);

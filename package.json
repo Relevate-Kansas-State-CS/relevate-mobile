@@ -11,7 +11,7 @@
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
-    "jsdoc": "3.5.5"
+    "jsdoc": "^3.5.5"
   },
   "scripts": {
     "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json -r README.md"

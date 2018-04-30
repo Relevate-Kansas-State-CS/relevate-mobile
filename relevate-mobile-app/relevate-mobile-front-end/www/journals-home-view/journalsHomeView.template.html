@@ -1,0 +1,14 @@
+﻿<md-card ng-repeat="journal in journals track by $index">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{journal.journal_title}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <img ng-src="{{journal.journal_image}}" class="md-card-image" alt="Journal Description Image">
+        <p>{{journal.journal_description}}</p>
+    </md-card-content>
+    <md-card-actions layout="column" layout-align="start">
+        <md-button class="bg-dkblue" ng-click="viewJournal(journal)">View Journal</md-button>
+    </md-card-actions>
+</md-card>

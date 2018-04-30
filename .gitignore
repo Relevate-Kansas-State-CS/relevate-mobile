@@ -267,3 +267,8 @@ __pycache__/
 !.elasticbeanstalk/*.cfg.yml
 
 !.elasticbeanstalk/*.global.yml
+
+# Config files for back-end
+
+**/relevate-mobile-back-end/config.js
+/relevate-mobile-app/relevate-mobile-front-end

@@ -111,6 +111,10 @@ md-nav-bar md-nav-ink-bar, _md-nav-button-text, _md-nav-button {
     color: #ffffff !important;
 }
 
+.gold {
+    color: gold;
+}
+
 .img-circle {
     border-radius: 50%;
 }
@@ -164,21 +168,6 @@ md-sidenav {
 .rounded-edges {
     border: 1px solid transparent;
     border-radius: 1rem;
-}
-
-.deckgrid::before {
-    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-    content: '2 .column.column-1-2';
-    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-    visibility: hidden;
-}
-
-.deckgrid .column {
-    float: left;
-}
-
-.deckgrid .column-1-2 {
-    width: 50%;
 }
 
 .padding-remove {
@@ -235,6 +224,13 @@ md-sidenav {
     text-align: left;
 }
 
+.takeQuizButton {
+    font: 300;
+    font-family: Lato, Arial, serif;
+    color: #FFFFFF;
+    background-color: #246FF2;
+}
+
 .finishedQuizHeader {
     font-family: Lato, Arial, serif;
     font-size: 1.6em;
@@ -284,4 +280,11 @@ md-radio-button .md-label {
 .md-checked {
     background-color: #246FF2;
     color: #ffffff;
+}
+
+.viewJournalButton {
+    font: 300;
+    font-family: Lato, Arial, serif;
+    color: #FFFFFF;
+    background-color: #246FF2;
 }

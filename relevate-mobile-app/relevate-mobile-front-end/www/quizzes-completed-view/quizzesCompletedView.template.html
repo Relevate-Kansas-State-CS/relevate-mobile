@@ -1,0 +1,16 @@
+﻿<div class="quiz-card">
+    <md-card ng-repeat="quiz in quizzes track by $index">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{quiz.quiz_title}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <img ng-src="{{quiz.quiz_image}}" class="md-card-image" alt="Quiz Image Placeholder">
+            <p>{{quiz.quiz_description}}</p>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+            <md-button class="bg-dkblue" ng-click="OpenQuiz(quiz)">View Quiz</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

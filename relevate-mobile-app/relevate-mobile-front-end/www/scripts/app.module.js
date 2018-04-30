@@ -11,11 +11,18 @@
  * @requires homeView
  * @requires trendingView
  * @requires recentView
+ * @requires submitView
+ * @requires submitArticleView
+ * @requires submitQuizView
+ * @requires userSubmissionsView
  * @requires followingView
  * @requires quizzesView
  * @requires openQuizView
- * @requires journalsView
+ * @requires openJournalView
  * @requires feedView
+ * @requires quizView
+ * @requires finishedQuizView
+ * @requires journalsHomeView
  * @description This is the main module for the application.
  */
 angular.module('mainApp', [
@@ -32,11 +39,25 @@ angular.module('mainApp', [
     'homeView',
     'trendingView',
     'recentView',
+    'submitView',
+    'submitArticleView',
+    'submitQuizView',
+    'userSubmissionsView',
     'followingView',
-    'quizzesView',
+    'quizzesHomeView',
+    'quizzesTrendingView',
+    'quizzesCompletedView',
     'openQuizView',
-    'journalsView',
+    'quizOpenView',
+    'openJournalView',
     'feedView',
     'quizView',
-    'finishedQuizView'
+    'finishedQuizView',
+    'journalsView',
+    'journalsHomeView',
+    'journalsTrendingView',
+    'journalsCompletedView',
+    'journalOpenView',
+    'accountView',
+    'createView'
 ]);
